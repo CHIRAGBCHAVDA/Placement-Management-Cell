@@ -30,6 +30,9 @@
             "projectReferences": {
               "D:\\Placement Management Cell\\Placement Management Cell\\PlacementManagementCell.DataAccess\\PlacementManagementCell.DataAccess.csproj": {
                 "projectPath": "D:\\Placement Management Cell\\Placement Management Cell\\PlacementManagementCell.DataAccess\\PlacementManagementCell.DataAccess.csproj"
+              },
+              "D:\\Placement Management Cell\\Placement Management Cell\\PlacementManagementCell.Models\\PlacementManagementCell.Models.csproj": {
+                "projectPath": "D:\\Placement Management Cell\\Placement Management Cell\\PlacementManagementCell.Models\\PlacementManagementCell.Models.csproj"
               }
             }
           }

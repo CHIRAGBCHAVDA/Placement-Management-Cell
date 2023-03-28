@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlacementManagementCell.Models.VIewModels
+namespace PlacementManagementCell.Models.ViewModels
 {
     public class CompanyCard
     {

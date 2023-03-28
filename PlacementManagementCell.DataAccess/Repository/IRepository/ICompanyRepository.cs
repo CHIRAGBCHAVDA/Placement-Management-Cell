@@ -1,4 +1,4 @@
-﻿using PlacementManagementCell.Models.VIewModels;
+﻿using PlacementManagementCell.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +9,6 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
 {
     public interface ICompanyRepository
     {
-        public CompanyCard getCompanyCard();
+        public List<CompanyCard> getCompanyCards();
     }
 }

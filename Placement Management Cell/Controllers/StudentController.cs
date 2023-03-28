@@ -162,7 +162,8 @@ namespace Placement_Management_Cell.Controllers
 
         public IActionResult StudentLanding()
         {
-            return View();
+            var comp = _unitOfWork.CompanyRepo.getCompanyCards();
+            return View(comp);
         }
     }
 }

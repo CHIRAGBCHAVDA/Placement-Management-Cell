@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PlacementManagementCell.DataAccess\PlacementManagementCell.DataAccess.csproj" />
+    <ProjectReference Include="..\PlacementManagementCell.Models\PlacementManagementCell.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>

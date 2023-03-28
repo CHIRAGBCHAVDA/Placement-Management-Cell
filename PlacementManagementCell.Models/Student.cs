@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PlacementManagementCell.Models
 {
@@ -18,6 +20,10 @@ namespace PlacementManagementCell.Models
         public string MobileNumber { get; set; } = null!;
         public string EmailAddress { get; set; } = null!;
         public string Password { get; set; } = null!;
+
+        [NotMapped]
+        [Compare("Password", ErrorMessage = "Confirm password must be matched with Password!!")]
+        public string ConfirmPassword { get; set; }
         public string? Resume { get; set; }
         public string? Token { get; set; }
         public DateTime? TokenCreatedAt { get; set; }

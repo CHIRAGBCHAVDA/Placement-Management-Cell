@@ -5796,7 +5796,8 @@
       "Microsoft.EntityFrameworkCore.Relational >= 6.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.11",
-      "PlacementManagementCell.DataAccess >= 1.0.0"
+      "PlacementManagementCell.DataAccess >= 1.0.0",
+      "PlacementManagementCell.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5828,6 +5829,9 @@
           "projectReferences": {
             "D:\\Placement Management Cell\\Placement Management Cell\\PlacementManagementCell.DataAccess\\PlacementManagementCell.DataAccess.csproj": {
               "projectPath": "D:\\Placement Management Cell\\Placement Management Cell\\PlacementManagementCell.DataAccess\\PlacementManagementCell.DataAccess.csproj"
+            },
+            "D:\\Placement Management Cell\\Placement Management Cell\\PlacementManagementCell.Models\\PlacementManagementCell.Models.csproj": {
+              "projectPath": "D:\\Placement Management Cell\\Placement Management Cell\\PlacementManagementCell.Models\\PlacementManagementCell.Models.csproj"
             }
           }
         }
