@@ -1,0 +1,12 @@
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\bin\Debug\net6.0\PlacementManagementCell.Models.deps.json
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\bin\Debug\net6.0\PlacementManagementCell.Models.dll
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\bin\Debug\net6.0\PlacementManagementCell.Models.pdb
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\obj\Debug\net6.0\PlacementManagementCell.Models.csproj.AssemblyReference.cache
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\obj\Debug\net6.0\PlacementManagementCell.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\obj\Debug\net6.0\PlacementManagementCell.Models.AssemblyInfoInputs.cache
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\obj\Debug\net6.0\PlacementManagementCell.Models.AssemblyInfo.cs
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\obj\Debug\net6.0\PlacementManagementCell.Models.csproj.CoreCompileInputs.cache
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\obj\Debug\net6.0\PlacementManagementCell.Models.dll
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\obj\Debug\net6.0\refint\PlacementManagementCell.Models.dll
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\obj\Debug\net6.0\PlacementManagementCell.Models.pdb
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.Models\obj\Debug\net6.0\ref\PlacementManagementCell.Models.dll

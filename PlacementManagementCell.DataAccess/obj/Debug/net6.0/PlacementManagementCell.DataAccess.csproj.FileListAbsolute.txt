@@ -1,0 +1,15 @@
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\bin\Debug\net6.0\PlacementManagementCell.DataAccess.deps.json
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\bin\Debug\net6.0\PlacementManagementCell.DataAccess.dll
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\bin\Debug\net6.0\PlacementManagementCell.DataAccess.pdb
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\bin\Debug\net6.0\PlacementManagementCell.Models.dll
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\bin\Debug\net6.0\PlacementManagementCell.Models.pdb
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\obj\Debug\net6.0\PlacementManagementCell.DataAccess.csproj.AssemblyReference.cache
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\obj\Debug\net6.0\PlacementManagementCell.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\obj\Debug\net6.0\PlacementManagementCell.DataAccess.AssemblyInfoInputs.cache
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\obj\Debug\net6.0\PlacementManagementCell.DataAccess.AssemblyInfo.cs
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\obj\Debug\net6.0\PlacementManagementCell.DataAccess.csproj.CoreCompileInputs.cache
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\obj\Debug\net6.0\PlacementManagementCell.DataAccess.csproj.CopyComplete
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\obj\Debug\net6.0\PlacementManagementCell.DataAccess.dll
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\obj\Debug\net6.0\refint\PlacementManagementCell.DataAccess.dll
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\obj\Debug\net6.0\PlacementManagementCell.DataAccess.pdb
+D:\Placement Management Cell\Placement Management Cell\PlacementManagementCell.DataAccess\obj\Debug\net6.0\ref\PlacementManagementCell.DataAccess.dll

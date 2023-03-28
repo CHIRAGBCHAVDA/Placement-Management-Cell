@@ -1,0 +1,100 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Student
+@{
+    ViewData["Title"] = "HomePage";
+}
+
+
+<div class="toast-div me-0 d-absolute">
+
+    @if (TempData["user-login-success"] != null || TempData["reg-success"] != null)
+    {
+        @*<!-- jQuery -->*@
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+        @if (TempData["user-login-success"] != null)
+        {
+            <script type="text/javascript">
+                toastr.success('@TempData["user-login-success"]', { "toastClass": "custom-toast-success" });
+            </script>
+        }
+        else
+        {
+            <script type="text/javascript">
+                toastr.success('@TempData["reg-success"]', { "toastClass": "custom-toast-success" });
+            </script>
+        }
+
+    }
+    else if (TempData["user-login-fail"] != null || TempData["reg-fail"] != null)
+    {
+       @* <script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+        @*<!-- jQuery -->*@
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+        @if (TempData["user-login-fail"] != null)
+        {
+            <script type="text/javascript">
+                toastr.error('TempData["user-login-fail"]'@*, { "toastClass": "custom-toast-error" }*@);
+            </script>
+        }
+        else
+        {
+            <script type="text/javascript">
+                toastr.error('@TempData["reg-fail"]', { "toastClass": "custom-toast-error" });
+            </script>
+        }
+    }
+    @*else if (TempData["reset-success"] != null)
+    {
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script type="text/javascript">
+            toastr.success('@TempData["reset-success"]', { "toastClass": "custom-toast-success" });
+        </script>
+    }*@
+
+</div>
+
+<section class="login-section">
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="login-box p-4">
+                    <h2 class="text-center mb-4">Log In</h2>
+                    <form method="post" asp-action="StudentLogin">
+                        <div class="form-group mb-3">
+                            <label asp-for="EmailAddress" for="email" class="form-label">Email address</label>
+                            <input asp-for="EmailAddress" type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                   placeholder="Enter email">
+                            <span asp-validation-for="EmailAddress" class="text-danger"></span>
+
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Password" for="password" class="form-label">Password</label>
+                            <div class="password-input-container">
+                                <input asp-for="Password" type="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group mb-3 text-end">
+                            <a asp-action="LostPassword" asp-controller="Student" class="forgot-password-link">Forgot Password?</a>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary px-4 py-2">Log In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

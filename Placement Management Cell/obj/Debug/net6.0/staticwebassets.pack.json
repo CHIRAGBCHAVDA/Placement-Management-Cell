@@ -1,0 +1,349 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\PlacementManagementCell.bundle.scp.css",
+      "PackagePath": "staticwebassets\\PlacementManagementCell.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\ACN.png",
+      "PackagePath": "staticwebassets\\assets\\ACN.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\ADANIENT.NS_BIG.png",
+      "PackagePath": "staticwebassets\\assets\\ADANIENT.NS_BIG.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\AMZN.png",
+      "PackagePath": "staticwebassets\\assets\\AMZN.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\BBAI.png",
+      "PackagePath": "staticwebassets\\assets\\BBAI.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\BOSCHLTD.NS.png",
+      "PackagePath": "staticwebassets\\assets\\BOSCHLTD.NS.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\FB.png",
+      "PackagePath": "staticwebassets\\assets\\FB.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\GOOG_BIG.png",
+      "PackagePath": "staticwebassets\\assets\\GOOG_BIG.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\INFY.png",
+      "PackagePath": "staticwebassets\\assets\\INFY.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\LT.NS.png",
+      "PackagePath": "staticwebassets\\assets\\LT.NS.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\MSFT.png",
+      "PackagePath": "staticwebassets\\assets\\MSFT.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\MSFT_BIG.png",
+      "PackagePath": "staticwebassets\\assets\\MSFT_BIG.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\NFLX.png",
+      "PackagePath": "staticwebassets\\assets\\NFLX.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\ORCL.png",
+      "PackagePath": "staticwebassets\\assets\\ORCL.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\SAP.png",
+      "PackagePath": "staticwebassets\\assets\\SAP.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\SIE.DE_BIG.png",
+      "PackagePath": "staticwebassets\\assets\\SIE.DE_BIG.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\TCS.NS_BIG.png",
+      "PackagePath": "staticwebassets\\assets\\TCS.NS_BIG.png"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\company-1.jpg",
+      "PackagePath": "staticwebassets\\assets\\company-1.jpg"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\company-2.jpg",
+      "PackagePath": "staticwebassets\\assets\\company-2.jpg"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\company-3.jpg",
+      "PackagePath": "staticwebassets\\assets\\company-3.jpg"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\header.jpg",
+      "PackagePath": "staticwebassets\\assets\\header.jpg"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.PlacementManagementCell.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.PlacementManagementCell.props",
+      "PackagePath": "build\\PlacementManagementCell.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.PlacementManagementCell.props",
+      "PackagePath": "buildMultiTargeting\\PlacementManagementCell.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.PlacementManagementCell.props",
+      "PackagePath": "buildTransitive\\PlacementManagementCell.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

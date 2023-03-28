@@ -1,0 +1,221 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+   Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid d-flex justify-content-between">
+        <a class="navbar-brand" href="#">Student Placement Management System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav d-flex justify-content-end w-100 align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Applications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                       <i class="bi bi-bell text-decoration-none fst-normal"> &nbsp; Notifications</i>
+                    </a>
+                </li>
+                <li class="nav-item d-flex flex-column align-items-center ms-4">
+                    <a class="nav-link"><img src="https://lh3.googleusercontent.com/ogw/AAEL6sjd9z0L0ePBoKjmBRCpUS6L_Kf21CNyTX883Bv3=s32-c-mo" class="rounded-circle"/></a>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary bg-none text-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Chirag Chavda
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item " href="#">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item bg-danger" asp-action="Login" asp-controller="Student">Logout</a></li>
+                        </ul>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<hr style="height:2px"/>
+
+<div class="container mt-2">
+    <div class="row justify-content-between" style="min-height:50px">
+        <div class="ps-0 col-12  col-sm-12 col-md-6">
+            <input class="form-control me-2 border h-100"
+                   type="search"
+                   placeholder="Search Companies..."
+                   aria-label="Search" id="search-query" />
+        </div>
+        @*<div class="col-6 bg-warning col-sm-6 col-md-3">
+            <button class="btn bg-warning h-100">Recent</button>
+        </div>*@
+        <div class="mt-3 ps-0 col-6 col-sm-6 col-md-3 text-md-end mt-md-0">
+            <div class="dropdown h-100 w-100">
+                <button class="btn h-100 btn-secondary bg-white border dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort By
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4 mb-5">
+    <div class="row px-0 view-group">
+
+        <div class="item col-md-6 col-sm-12 col-lg-4 my-4">
+            <div class="card thumbnail shadow card-to-scale">
+                <div class="card">
+                    <img src="~/assets/AMZN.png" class="card-img-top" alt="..." style="height:250px;">
+                    <div class="card-img-overlay">
+                        <div class="d-flex features-like-location flex-column align-items-end h-100 justify-content-between">
+                            <div class="location-field text-light fw-lighter bg-dark px-2 py-1 rounded-pill text-center">
+                                <a href="" class="text-decoration-none text-light">
+                                    <span>
+                                        <i class="bi bi-geo-alt text-decoration-none fst-normal">San Francisco</i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="like-group d-flex flex-column justify-content-between">
+                                <div class="bg-dark p-1 my-1 rounded-circle d-flex justify-content-center align-items-center">
+                                    <i class="bi bi-mortarboard text-decoration-none fst-normal text-light"> .Net</i>
+                                </div>
+
+                                <button class="bg-dark bg-dark p-1 my-1  rounded-pill border-0 recommendation-grid-list" id="tempToCoworker" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick="gridListRecommend()">
+                                    <i class="bi bi-currency-rupee text-decoration-none fst-normal text-light">10 CR</i>
+                                </button>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <span class="fw-lighter bg-dark rounded-pill text-center text-light w-50 align-self-center"
+                      style="margin-top: -10px; z-index: 5;">Amazon</span>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Vacancy Open at Amazon for .NET Developers
+                    </h5>
+                   
+                    <p class="card-text card-text-h-150px">
+                        Amazon is seeking experienced .NET developers to join its team in developing cutting-edge technology solutions. The ideal candidate should possess strong technical skills, excellent problem-solving abilities, and a passion for innovation. As a .NET developer at Amazon, you will have the opportunity to work on exciting projects that will shape the future of technology. If you are a team player with a can-do attitude, then this is the perfect opportunity for you to take your career to the next level. Apply now and be a part of the dynamic team at Amazon!
+                    </p>
+                   
+                    <div class="d-flex justify-content-center">
+                        <span class="rounded-pill bg-white fw-light border px-2 mt-4" style="z-index: 1;">
+                            From 10/12/2002 until 12/20/2003
+                        </span>
+                    </div>
+                    <hr class="" style="margin-top: -10px;">
+
+                    <div class="time-seats">
+                        <div class="d-flex time-seats-wrapper align-items-center justify-content-between">
+                            <div class="d-flex align-items-center justify-content-between w-100">
+                                
+                                    <div class="d-flex align-items-center">
+
+                                        <div class="seats mx-2">
+                                        <i class="bi bi-shop"></i>
+                                        </div>
+                                        <div class="d-flex flex-column">
+                                            <span>
+                                                15
+                                            </span>
+                                            <span class="fw-lighter">Vacancy Left</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="deadlines d-flex align-items-center justify-content-between">
+                                        <div class="deadline mx-2">
+                                        <i class="bi bi-clock"></i>
+                                        </div>
+                                        <div class="d-flex flex-column ">
+                                            <span>09/01/2019</span>
+                                            <span class="fw-lighter">Deadline</span>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mission-submit-btn text-center">
+                        <a onclick="volunteeringMissionDetails(item.mission.MissionId)">
+                            <button type="submit" class="btn bg-white  rounded-pill px-4">
+                                View Details
+                                &nbsp; &nbsp;<i class="bi bi-arrow-right"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+@*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+</button>*@
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Recent Notifications</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Mark As Read</button>
+            </div>
+        </div>
+    </div>
+</div>

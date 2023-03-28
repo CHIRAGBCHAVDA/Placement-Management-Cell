@@ -1,0 +1,144 @@
+/* .index-updates-and-carousel {
+    height: 400px;
+    position: relative;
+    
+}
+.index-updates-and-carousel::before{
+    position: absolute;
+    background-image: url("header.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 50%;
+} */
+
+
+.index-updates-and-carousel {
+    height: 250px;
+    position: relative;
+}
+
+.index-updates-and-carousel::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/header.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Adjust this value to change the opacity */
+}
+
+#loginBtn:hover, #regBtn:hover{
+    background-color: aqua;
+}
+
+.index-company-img{
+    height: 400px;
+}
+.index-carousel-company .carouselExampleCaptions  .carousel-inner .carousel-item .carousel-caption{
+    color: black;
+    font-weight: bold;
+    background-color: aqua;
+}
+
+.mass-recruiters-wrapper{
+    height: 250px;
+}
+.mass-recruiters-wrapper img{
+    height: 100px;
+    width: 100px;
+}
+
+
+
+/*  */
+.company-logo {
+    position: relative;
+    text-align: center;
+    background-color:azure;
+  }
+  .company-logo img{
+    height: 100px;
+    width: 100px;
+  }
+  
+  .company-logo::before,
+  .company-logo::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .company-logo::before {
+    top: 0;
+    left: 0;
+    border-top-color: orange;
+    border-left-color: tomato;
+  }
+  
+  .company-logo::after {
+    bottom: 0;
+    right: 0;
+    border-bottom-color: tomato;
+    border-right-color: orange;
+  }
+  
+  .company-logo:hover::before,
+  .company-logo:hover::after {
+    width: 100%;
+    height: 100%;
+  }
+  
+
+  .login-section,.registraion-section {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+  }
+  
+  .login-box, .registration-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .login-box:hover,.registration-box:hover {
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .password-input-container {
+    position: relative;
+  }
+  
+  .forgot-password-link:hover {
+    color: #f30000;
+  }
+.custom-toast-success {
+    background-color: green;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+.custom-toast-error {
+    background-color: red;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+.features-like-location i{
+    opacity:0.5;
+}
+.card-text-h-150px{
+    height:150px;
+    overflow-y:auto;
+}

@@ -1,0 +1,156 @@
+﻿@model Student
+<section class="registration-section mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="registration-box p-4">
+                    <h2 class="text-center mb-4">Register Now</h2>
+                    <form method="post" asp-action="StudentRegistrationPOST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="EnrollmentNumber" for="enrollment-number" class="form-label">Enrollment Number</label>
+                                    <input asp-for="EnrollmentNumber" type="text" class="form-control" id="enrollment-number"
+                                           placeholder="Enter your Enrollment Number">
+                                    <span asp-validation-for="EnrollmentNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="FirstName" for="first-name" class="form-label">First Name</label>
+                                    <input asp-for="FirstName" type="text" class="form-control" id="first-name"
+                                           placeholder="Enter your First Name">
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="MiddleName" for="middle-name" class="form-label">Middle Name</label>
+                                    <input asp-for="MiddleName" type="text" class="form-control" id="middle-name"
+                                           placeholder="Enter your Middle Name">
+                                    <span asp-validation-for="MiddleName" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="LastName" for="last-name" class="form-label">Last Name</label>
+                                    <input asp-for="LastName" type="text" class="form-control" id="last-name"
+                                           placeholder="Enter your Last Name">
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="EngineeringBranch" for="engineering-branch" class="form-label">Engineering Branch</label>
+                                    <select asp-for="EngineeringBranch" class="form-select" aria-label="Default select example">
+                                        <option selected>Select your Engineering Branch</option>
+                                        <option value="it">Information Technology</option>
+                                        <option value="mech">Mechanical</option>
+                                        <option value="civil">Civil</option>
+                                    </select>
+                                    <span asp-validation-for="EngineeringBranch" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="DateOfBirth" for="date-of-birth" class="form-label">Date of Birth</label>
+                                    <input asp-for="DateOfBirth" type="date" class="form-control" id="date-of-birth"
+                                           placeholder="Enter your Date of Birth">
+                                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="TenthPercentage" for="10th-percentage" class="form-label">10th Percentage</label>
+                                    <input asp-for="TenthPercentage" type="number" class="form-control" id="10th-percentage"
+                                           placeholder="Enter your 10th Percentage">
+                                    <span asp-validation-for="TenthPercentage" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="TwelthPercentage" for="12th-percentage" class="form-label">12th Percentage</label>
+                                    <input asp-for="TwelthPercentage" type="number" class="form-control" id="12th-percentage"
+                                           placeholder="Enter your 12th Percentage">
+                                    <span asp-validation-for="TwelthPercentage" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="DiplomaCgpa" for="diploma-cgpa" class="form-label">Diploma CGPA</label>
+                                    <input asp-for="DiplomaCgpa" type="number" class="form-control" id="diploma-cgpa"
+                                           placeholder="Enter your Diploma CGPA">
+                                    <span asp-validation-for="DiplomaCgpa" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="BeCgpa" for="bg-cgpa" class="form-label">B.E. CGPA</label>
+                                    <input asp-for="BeCgpa" type="number" class="form-control" id="bg-cgpa"
+                                           placeholder="Enter your B.E. CGPA">
+                                    <span asp-validation-for="BeCgpa" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="MobileNumber" for="mobile-number" class="form-label">Mobile Number</label>
+                                    <input asp-for="MobileNumber" type="tel" class="form-control" id="mobile-number"
+                                           placeholder="Enter your Mobile Number">
+                                    <span asp-validation-for="MobileNumber" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="EmailAddress" for="email-address" class="form-label">Email Address</label>
+                                    <input asp-for="EmailAddress" type="email" class="form-control" id="email-address"
+                                           placeholder="Enter your Email Address">
+                                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="Password" for="password" class="form-label">Password</label>
+                                    <input asp-for="Password" type="password" class="form-control" id="password"
+                                           placeholder="Enter Your Password">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="ConfirmPassword" for="confirm-password" class="form-label">Confirm Password</label>
+                                    <input asp-for="ConfirmPassword" type="password" class="form-control" id="confirm-password"
+                                           placeholder="Confirm Your Password">
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group mb-3">
+                                    <label asp-for="Resume" for="resume-upload" class="form-label">Upload Your Resume</label>
+                                    <input asp-for="Resume" type="file" class="form-control" name="resume" id="resume-upload">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group w-100">
+                                    <button type="submit" class="btn btn-danger">Register</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
