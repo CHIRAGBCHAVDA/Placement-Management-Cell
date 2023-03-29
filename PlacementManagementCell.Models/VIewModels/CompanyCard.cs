@@ -19,6 +19,7 @@ namespace PlacementManagementCell.Models.ViewModels
         public long? NoOfVacancy { get; set; }
         public DateTime? Deadline { get; set; }
         public string? CompanyLogo { get; set; }
+        public string? City { get; set; }
 
     }
 }

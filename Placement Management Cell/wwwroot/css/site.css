@@ -20,3 +20,10 @@ body {
 .card-text::-webkit-scrollbar {
     width: 0px;
 }
+.card-body-h-450px{
+    height:450px;
+}
+
+.card-to-scale:hover{
+    transform : scale(1.05);
+}

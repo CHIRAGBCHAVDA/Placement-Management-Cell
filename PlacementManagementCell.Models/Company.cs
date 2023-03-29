@@ -21,5 +21,6 @@ namespace PlacementManagementCell.Models
         public string? BenefitsAndPerks { get; set; }
         public string? FilePath { get; set; }
         public string? CompanyLogo { get; set; }
+        public string? City { get; set; }
     }
 }

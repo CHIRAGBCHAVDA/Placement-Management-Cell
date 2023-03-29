@@ -44,6 +44,10 @@ namespace PlacementManagementCell.DataAccess.Data
 
                 entity.Property(e => e.BriefDesc).HasColumnType("text");
 
+                entity.Property(e => e.City)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.CompanyAddress).HasColumnType("text");
 
                 entity.Property(e => e.CompanyLogo).HasColumnType("text");
@@ -158,6 +162,4 @@ namespace PlacementManagementCell.DataAccess.Data
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
-
-
 }

@@ -35,7 +35,8 @@ namespace PlacementManagementCell.DataAccess.Repository
                                   ToDate = c.ToDate,
                                   NoOfVacancy = c.NoOfVacancy,
                                   Deadline = c.Deadline,
-                                  CompanyLogo = c.CompanyLogo
+                                  CompanyLogo = c.CompanyLogo,
+                                  City = c.City
                               };
 
             return companyCard.ToList();
