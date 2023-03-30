@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AmXBSeYAE5wo6IUPvuZRa7DKlgKvqvO9mZfBG5rrXtg=",
+  "Hash": "homwogmY3+E0/tfdBj5UkLTRKct2SUOIQQC/2vXbaAU=",
   "Source": "PlacementManagementCell",
   "BasePath": "_content/PlacementManagementCell",
   "Mode": "Default",
@@ -457,6 +457,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\js\\StudentLanding.js",
+      "SourceId": "PlacementManagementCell",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\",
+      "BasePath": "_content/PlacementManagementCell",
+      "RelativePath": "js/StudentLanding.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\StudentLanding.js"
     },
     {
       "Identity": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

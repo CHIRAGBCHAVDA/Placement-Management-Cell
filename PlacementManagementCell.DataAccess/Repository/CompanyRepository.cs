@@ -1,8 +1,10 @@
-﻿using PlacementManagementCell.DataAccess.Data;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
+using PlacementManagementCell.DataAccess.Data;
 using PlacementManagementCell.DataAccess.Repository.IRepository;
 using PlacementManagementCell.Models.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +15,7 @@ namespace PlacementManagementCell.DataAccess.Repository
     public class CompanyRepository : ICompanyRepository
     {
         private readonly PlacementManagementContext _db;
+        public static int allCompCount;
 
         public CompanyRepository(PlacementManagementContext db)
         {
@@ -38,8 +41,38 @@ namespace PlacementManagementCell.DataAccess.Repository
                                   CompanyLogo = c.CompanyLogo,
                                   City = c.City
                               };
+            allCompCount = companyCard.Count();
 
             return companyCard.ToList();
+        }
+
+        public List<CompanyCard> getCompanyCards(string? searchKeyword, int pageNum, [DefaultValue(1)] int sortBy)
+        {
+            var filteredCompanies = getCompanyCards();
+            allCompCount = filteredCompanies.Count();
+            if(searchKeyword != null)
+            {
+                filteredCompanies = filteredCompanies.Where(cm => cm.Title.ToLower().Contains(searchKeyword.ToLower()) || cm.Technology.Contains(searchKeyword)).ToList();
+            }
+
+            switch (sortBy)
+            {
+                case 1:
+                    filteredCompanies = filteredCompanies.OrderBy(c => c.Name).ToList();
+                    break;
+                case 2:
+                    filteredCompanies = filteredCompanies.OrderByDescending(c => c.Package).ToList();
+                    break;
+                case 3:
+                    filteredCompanies = filteredCompanies.OrderBy(c => c.Package).ToList();
+                    break;
+                case 4:
+                    filteredCompanies = filteredCompanies.OrderBy(c => c.Deadline).ToList();
+                    break;
+            }
+
+            filteredCompanies = filteredCompanies.Skip((pageNum - 1) * 3).Take(3).ToList();
+            return filteredCompanies;
         }
     }
 }

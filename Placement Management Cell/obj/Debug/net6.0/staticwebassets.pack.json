@@ -97,6 +97,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\js\\StudentLanding.js",
+      "PackagePath": "staticwebassets\\js\\StudentLanding.js"
+    },
+    {
       "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

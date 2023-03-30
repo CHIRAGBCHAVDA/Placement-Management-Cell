@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Net.Mail;
 using System.Net;
 using System.Web.Helpers;
+using System.ComponentModel;
 
 namespace Placement_Management_Cell.Controllers
 {
@@ -159,11 +160,17 @@ namespace Placement_Management_Cell.Controllers
             client.Send(message);
 
         }
-
-        public IActionResult StudentLanding()
-        {
-            var comp = _unitOfWork.CompanyRepo.getCompanyCards();
+        public IActionResult StudentLanding(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy)
+        {                                   
+            var comp = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy);
             return View(comp);
+        }
+
+        [HttpPost]
+        public IActionResult CompanyFilter(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy)
+        {
+            var comp = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy);
+            return PartialView("_CompanyCardList",comp);
         }
     }
 }
