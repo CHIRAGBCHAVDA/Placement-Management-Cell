@@ -1,0 +1,58 @@
+﻿@using PlacementManagementCell.Models.ViewModels
+@model StudentCompanyDetailViewModel
+
+
+
+@{
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+<script src="~/js/StudentLanding.js"></script>
+
+<partial name="_StudentHeader" model="Model.StudentHeader" />
+
+<div class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="@Model.Company.CompanyLogo" alt="Company Logo" class="img-fluid" style="max-height:320px" />
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <h1 class="fw-bold">@Model.Company.Name</h1>
+                <p>@Model.Company.BriefDesc</p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <h2>Job Details</h2>
+                <ul>
+                    <li>Title: @Model.Company.Title</li>
+                    <li>Technology: @Model.Company.Technology</li>
+                    <li>Package: @Model.Company.Package</li>
+                    <li>No. of Vacancies: @Model.Company.NoOfVacancy</li>
+                    <li>Location: @Model.Company.City</li>
+                    <li>From: @Model.Company.FromDate To: @Model.Company.ToDate</li>
+                    <li>Deadline: @Model.Company.Deadline</li>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <h2>Description</h2>
+                <p>@Model.Company.LongDesc</p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <h2>Company Address</h2>
+                <p>@Model.Company.CompanyAddress</p>
+            </div>
+            <div class="col-md-8">
+                <h2>Training and Benefits</h2>
+                <p>@Model.Company.TrainingInfo</p>
+                <p>@Model.Company.BenefitsAndPerks</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h2>@Model.Company.CompanyLogo</h2>*@

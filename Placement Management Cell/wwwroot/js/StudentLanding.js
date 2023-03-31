@@ -46,3 +46,7 @@ function searchMissions() {
     console.log(searchKeyword)
     getFilter(1);
 }
+
+function companyDetails(companyId) {
+    window.location.href = `/Student/CompanyDetail?companyId=` + companyId;
+}

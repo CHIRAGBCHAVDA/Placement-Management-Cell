@@ -87,6 +87,8 @@ namespace PlacementManagementCell.DataAccess.Data
                     .IsUnicode(false)
                     .HasColumnName("enrollment_number");
 
+                entity.Property(e => e.Avatar).HasColumnType("text");
+
                 entity.Property(e => e.BeCgpa)
                     .HasColumnType("decimal(5, 2)")
                     .HasColumnName("be_cgpa");

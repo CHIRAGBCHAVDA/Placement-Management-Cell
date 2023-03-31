@@ -18,5 +18,6 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
         void storeTokem(Student student, string token);
         Student getStudentByToken(string token);
         public void changePassword(Student student);
+        public Student getStudentByErNo(string erNo);
     }
 }

@@ -9,6 +9,8 @@ using System.Net.Mail;
 using System.Net;
 using System.Web.Helpers;
 using System.ComponentModel;
+using Placement_Management_Cell.Authorization;
+using PlacementManagementCell.Models.ViewModels;
 
 namespace Placement_Management_Cell.Controllers
 {
@@ -87,6 +89,8 @@ namespace Placement_Management_Cell.Controllers
             if (checkStudent != null)
             {
                 TempData["user-login-success"] = "User Logged in Successfully";
+                HttpContext.Session.SetString("role", "student");
+                HttpContext.Session.SetString("erNo", checkStudent.EnrollmentNumber);
                 return RedirectToAction("StudentLanding", "Student");
             }
             TempData["user-login-fail"] = "Error Occurred While Login, Check the credentials...!";
@@ -160,10 +164,33 @@ namespace Placement_Management_Cell.Controllers
             client.Send(message);
 
         }
+
+        [AuthAttribute]
         public IActionResult StudentLanding(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy)
-        {                                   
-            var comp = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy);
-            return View(comp);
+        {
+            string erNo = HttpContext.Session.GetString("erNo");
+            var student = _unitOfWork.StudentRepo.getStudentByErNo(erNo);
+            var companyCards = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy);
+            StudentHeaderViewModel StudentHeader = new StudentHeaderViewModel()
+            {
+                EnrollmentNo = erNo,
+                Avatar = student.Avatar,
+                Name = student.FirstName + " " + student.LastName
+            };
+
+            //CompanyCardsTotalViewModel CompanyCardTotal = new CompanyCardsTotalViewModel()
+            //{
+            //    CompanyCards = companyCards,
+            //    TotalCompanies = companyCards.Count()
+            //};
+
+            StudentCompanyViewModel StudentCompany = new StudentCompanyViewModel()
+            {
+                StudentHeader = StudentHeader,
+                CompanyCardsTotal = companyCards
+            };
+
+            return View(StudentCompany);
         }
 
         [HttpPost]
@@ -171,6 +198,26 @@ namespace Placement_Management_Cell.Controllers
         {
             var comp = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy);
             return PartialView("_CompanyCardList",comp);
+        }
+
+        [AuthAttribute]
+        public IActionResult CompanyDetail(long companyId)
+        {
+            var student = _unitOfWork.StudentRepo.getStudentByErNo(HttpContext.Session.GetString("erNo"));
+            StudentHeaderViewModel StudentHeader = new StudentHeaderViewModel()
+            {
+                EnrollmentNo = student.EnrollmentNumber,
+                Avatar = student.Avatar,
+                Name = student.FirstName + " " + student.LastName
+            };
+            var company = _unitOfWork.CompanyRepo.getCompanyById(companyId);
+            StudentCompanyDetailViewModel StudentCompany = new StudentCompanyDetailViewModel()
+            {
+                Company = company,
+                StudentHeader = StudentHeader
+            };
+
+            return View(StudentCompany);
         }
     }
 }

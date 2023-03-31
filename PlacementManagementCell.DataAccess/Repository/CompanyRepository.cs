@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using PlacementManagementCell.DataAccess.Data;
 using PlacementManagementCell.DataAccess.Repository.IRepository;
+using PlacementManagementCell.Models;
 using PlacementManagementCell.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,7 @@ namespace PlacementManagementCell.DataAccess.Repository
             return companyCard.ToList();
         }
 
-        public List<CompanyCard> getCompanyCards(string? searchKeyword, int pageNum, [DefaultValue(1)] int sortBy)
+        public CompanyCardsTotalViewModel getCompanyCards(string? searchKeyword, int pageNum, [DefaultValue(1)] int sortBy)
         {
             var filteredCompanies = getCompanyCards();
             allCompCount = filteredCompanies.Count();
@@ -71,8 +72,24 @@ namespace PlacementManagementCell.DataAccess.Repository
                     break;
             }
 
+            var totalCompanies = filteredCompanies.Count();
+                      
+
             filteredCompanies = filteredCompanies.Skip((pageNum - 1) * 3).Take(3).ToList();
-            return filteredCompanies;
+
+            var CompanyCardTotal = new CompanyCardsTotalViewModel()
+            {
+                CompanyCards = filteredCompanies,
+                TotalCompanies = totalCompanies
+            };
+
+            return CompanyCardTotal;
+        }
+        
+        public Company getCompanyById(long companyId)
+        {
+            var company = _db.Companies.Where(c => c.CompanyId == companyId).FirstOrDefault();
+            return company;
         }
     }
 }

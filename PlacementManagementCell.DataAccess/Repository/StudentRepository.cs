@@ -25,6 +25,11 @@ namespace PlacementManagementCell.DataAccess.Repository
             if (getUser == null) return null;
             return getUser;
         }
+        public Student getStudentByErNo(string erNo)
+        {
+            var getUser = _db.Students.Where(s => s.EnrollmentNumber== erNo.ToString()).FirstOrDefault();
+            return getUser;
+        }
 
         public Student getStudentByToken(string token)
         {

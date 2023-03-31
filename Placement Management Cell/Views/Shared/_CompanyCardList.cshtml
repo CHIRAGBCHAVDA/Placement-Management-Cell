@@ -1,45 +1,36 @@
 ﻿@using PlacementManagementCell.Models.ViewModels
-@model List<CompanyCard>
+@model CompanyCardsTotalViewModel
 
 <div class="container mt-4 mb-5">
     <div class="row px-0 view-group">
 
-        @foreach (var item in Model)
+        @foreach (var item in Model.CompanyCards)
         {
             <div class="item col-md-6 col-sm-12 col-lg-4 my-4">
-                <div class="card thumbnail shadow card-to-scale">
-                    <div class="card">
-                        <img src="@item.CompanyLogo" class="card-img-top" alt="..." style="height:250px;">
-                        <div class="card-img-overlay">
-                            <div class="d-flex features-like-location flex-column align-items-end h-100 justify-content-between">
-                                <div class="location-field text-light fw-lighter bg-dark px-2 py-1 rounded-pill text-center">
-                                    <a href="" class="text-decoration-none text-light">
-                                        <span>
-                                            <i class="bi bi-geo-alt text-decoration-none fst-normal">@item.City</i>
-                                        </span>
-                                    </a>
+                <div class="card card-to-hover thumbnail shadow card-to-scale">
+                    <div class="card bg-dark">
+                        <img src="@item.CompanyLogo" class="card-img-top m-auto" alt="..." style="height:250px;width:200px;object-fit:contain">
+                        <div class="card-img-overlay card-hover-overlay">
+                            <div class="d-flex flex-column hidden-info">
+                                <div class="location-field text-dark bg-light px-2 py-1 rounded-pill text-center hidden-info">
+                                            <i class="bi bi-geo-alt text-decoration-none fst-normal">Job Location &nbsp; @item.City</i>
                                 </div>
-                                <div class="like-group d-flex flex-column justify-content-between">
-                                    <div class="bg-dark p-1 my-1 rounded-circle d-flex justify-content-center align-items-center">
-                                        <i class="bi bi-mortarboard text-decoration-none fst-normal text-light"> @item.Technology</i>
-                                    </div>
-
-                                    <button class="bg-dark bg-dark p-1 my-1  rounded-pill border-0 recommendation-grid-list" id="tempToCoworker" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick="gridListRecommend()">
-                                        <i class="bi bi-currency-rupee text-decoration-none fst-normal text-light">
-                                            @{
-                                                if (item.Package >= 100000)
-                                                {
-                                                    @($"{item.Package / 100000} L")
-                                                }
-                                                else
-                                                {
-                                                    @item.Package
-                                                }
+                                <div class="bg-light p-1 my-1 rounded-pill d-flex justify-content-center align-items-center hidden-info">
+                                    <i class="bi bi-mortarboard text-decoration-none fst-normal text-dark">Technology &nbsp; @item.Technology</i>
+                                </div>
+                                <div class="bg-light p-1 my-1 text-center rounded-pill border-0 recommendation-grid-list hidden-info" id="tempToCoworker" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" onclick="gridListRecommend()">
+                                    <i class="bi bi-currency-rupee text-decoration-none fst-normal text-dark">Package &nbsp;
+                                        @{
+                                            if (item.Package >= 100000)
+                                            {
+                                                @($"{item.Package / 100000} L")
                                             }
-                                        </i>
-                                    </button>
-
-
+                                            else
+                                            {
+                                                @item.Package
+                                            }
+                                        }
+                                    </i>
                                 </div>
 
                             </div>
@@ -95,12 +86,10 @@
                         </div>
                         <hr>
                         <div class="mission-submit-btn text-center">
-                            <a onclick="volunteeringMissionDetails(item.mission.MissionId)">
-                                <button type="submit" class="btn bg-white  rounded-pill px-4">
+                                <button class="btn bg-white  rounded-pill px-4" onclick="companyDetails(@item.CompanyId)">
                                     View Details
                                     &nbsp; &nbsp;<i class="bi bi-arrow-right"></i>
                                 </button>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -114,14 +103,14 @@
 
 
 @{
-    //double d = Model.Count() / 3.0;
-    double d = 3;
+    double d = Model.TotalCompanies / 3.0;
+    //double d = 3;
     double pages = Math.Ceiling(d);
 }
 
 
 <div class="mt-4 text-center m-auto">
-    <nav aria-label="Page navigation example" class="company-listing-pagination-nav">
+    <nav aria-label="Page navigation example" class="company-listing-pagination-nav m-auto" style="width:fit-content">
         <ul class="pagination">
             <li class="page-item mx-2">
                 <a class="page-link" href="#" aria-label="Previous">
