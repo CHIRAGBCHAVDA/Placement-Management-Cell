@@ -3,10 +3,18 @@
 
 
 
-    @{
-    Layout = "~/Views/Shared/_StudentLayout.cshtml";
-    }
-    <script src="~/js/StudentLanding.js"></script>
+@{
+Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+@if (TempData["user-login-success"] != null)
+{
+    string str = TempData["user-login-success"].ToString();
+    <partial name="_ToastSuccess" model="@str" />
+}
+
+
+<script src="~/js/StudentLanding.js"></script>
 
 <partial name="_StudentHeader" model="Model.StudentHeader" />
 

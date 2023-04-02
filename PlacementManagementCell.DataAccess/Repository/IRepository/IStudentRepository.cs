@@ -9,7 +9,7 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
 {
     public interface IStudentRepository
     {
-        void RegisterStudent(Student student);
+        bool RegisterStudent(Student student);
         Student LoginStudent(string Email, string Password);
         void UpdateStudent(Student student,string token);
         void Save();

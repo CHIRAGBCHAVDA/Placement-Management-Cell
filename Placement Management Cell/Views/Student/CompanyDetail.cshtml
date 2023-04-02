@@ -32,8 +32,8 @@
                     <li>Package: @Model.Company.Package</li>
                     <li>No. of Vacancies: @Model.Company.NoOfVacancy</li>
                     <li>Location: @Model.Company.City</li>
-                    <li>From: @Model.Company.FromDate To: @Model.Company.ToDate</li>
-                    <li>Deadline: @Model.Company.Deadline</li>
+                    <li>From: @Model.Company.FromDate.ToString().Substring(0,11) To: @Model.Company.ToDate.ToString().Substring(0,11)</li>
+                    <li>Deadline: @Model.Company.Deadline.ToString().Substring(0,11)</li>
                 </ul>
             </div>
             <div class="col-md-8">

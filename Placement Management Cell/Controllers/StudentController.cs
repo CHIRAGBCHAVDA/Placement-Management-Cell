@@ -70,15 +70,23 @@ namespace Placement_Management_Cell.Controllers
             try
             {
                 //student.Password = BCrypt.Net.BCrypt.HashPassword(student.Password);
-                _unitOfWork.StudentRepo.RegisterStudent(student);
-                _unitOfWork.StudentRepo.Save();
-                TempData["reg-success"] = "User Registered Successfully!";
+                var returnedByMethod = _unitOfWork.StudentRepo.RegisterStudent(student);
+                if (returnedByMethod == true)
+                {
+                    _unitOfWork.StudentRepo.Save();
+                    TempData["Verification-mail"] = "Verification mail is sent on your email address!!";
+                    return RedirectToAction("StudentVerification", "Student");
+                }
+                else
+                {
+                    TempData["reg-fail"] = "Could not register the outsider student or student already exists...!";
+                    return RedirectToAction("Registration", "Student");
+                }
             }
             catch(DataException)
             {
-                TempData["reg-fail"] = "Could not save the user...!";
+                return RedirectToAction("StudentVerification", "Student");
             }
-            return RedirectToAction("Login", "Student");
         }
 
         [HttpPost]
@@ -128,7 +136,7 @@ namespace Placement_Management_Cell.Controllers
         {
             string token = HttpContext.Request.GetDisplayUrl().Replace("https://localhost:44357/Student/ForgotPassword/", "");
             Student getStudentByToken = _unitOfWork.StudentRepo.getStudentByToken(token);
-            if (getStudentByToken != null && (getStudentByToken).TokenCreatedAt >= DateTime.Now.AddMinutes(-1))
+            if (getStudentByToken != null && (getStudentByToken).TokenCreatedAt >= DateTime.Now.AddMinutes(-5))
             {
                 //string pwd = BCrypt.Net.BCrypt.HashPassword(student.Password);
                 //getStudentByToken.Password = pwd;
@@ -178,12 +186,6 @@ namespace Placement_Management_Cell.Controllers
                 Name = student.FirstName + " " + student.LastName
             };
 
-            //CompanyCardsTotalViewModel CompanyCardTotal = new CompanyCardsTotalViewModel()
-            //{
-            //    CompanyCards = companyCards,
-            //    TotalCompanies = companyCards.Count()
-            //};
-
             StudentCompanyViewModel StudentCompany = new StudentCompanyViewModel()
             {
                 StudentHeader = StudentHeader,
@@ -218,6 +220,32 @@ namespace Placement_Management_Cell.Controllers
             };
 
             return View(StudentCompany);
+        }
+
+        public IActionResult StudentVerification()
+        {
+            TempData["mail-success"] = "Reset password link has been sent to your email id.";
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult StudentVerification(StudentVerificationViewModel studentVerificationViewModel)
+        {
+            var std = _db.Studentmajors.FirstOrDefault(student => student.EnrollmentNo == studentVerificationViewModel.EnrollmentNo && student.Token == studentVerificationViewModel.OTP);
+            if (std != null)
+            {
+                var student = _db.Students.FirstOrDefault(s => s.EnrollmentNumber == studentVerificationViewModel.EnrollmentNo);
+                student.IsVerified = true;
+                _db.Update(student);
+                _db.SaveChanges();
+                TempData["reg-fail"] = "Student Verified and Registered successfully...!";
+                return RedirectToAction("Login", "Student");
+            }
+            else
+            {
+                TempData["otp-wrong"] = "The OTP has been provided is incorrect..!!";
+                return RedirectToAction("StudentVerification", "Student");
+            }
         }
     }
 }

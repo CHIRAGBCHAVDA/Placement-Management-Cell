@@ -1,4 +1,13 @@
 ﻿@model Student
+
+
+
+@if (TempData["reg-fail"] != null)
+{
+    string str = TempData["reg-fail"].ToString();
+    <partial name="_ToastFail" model="@str" />
+}
+
 <section class="registration-section mt-4">
     <div class="container">
         <div class="row">

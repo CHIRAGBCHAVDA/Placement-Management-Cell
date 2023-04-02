@@ -22,6 +22,7 @@ namespace PlacementManagementCell.DataAccess.Data
 
         public virtual DbSet<Company> Companies { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
+        public virtual DbSet<Studentmajor> Studentmajors { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -93,6 +94,11 @@ namespace PlacementManagementCell.DataAccess.Data
                     .HasColumnType("decimal(5, 2)")
                     .HasColumnName("be_cgpa");
 
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasColumnName("created_at")
+                    .HasDefaultValueSql("(getdate())");
+
                 entity.Property(e => e.DateOfBirth)
                     .HasColumnType("date")
                     .HasColumnName("date_of_birth");
@@ -115,6 +121,10 @@ namespace PlacementManagementCell.DataAccess.Data
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("first_name");
+
+                entity.Property(e => e.IsVerified)
+                    .HasColumnName("is_verified")
+                    .HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.LastName)
                     .HasMaxLength(50)
@@ -159,9 +169,38 @@ namespace PlacementManagementCell.DataAccess.Data
                     .HasColumnName("twelth_percentage");
             });
 
+            modelBuilder.Entity<Studentmajor>(entity =>
+            {
+                entity.HasKey(e => e.EnrollmentNo)
+                    .HasName("PK__studentm__6D24831997387823");
+
+                entity.ToTable("studentmajor");
+
+                entity.Property(e => e.EnrollmentNo)
+                    .HasMaxLength(15)
+                    .IsUnicode(false)
+                    .HasColumnName("enrollment_no");
+
+                entity.Property(e => e.EmailId)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("email_id");
+
+                entity.Property(e => e.MobileNo)
+                    .HasMaxLength(11)
+                    .IsUnicode(false)
+                    .HasColumnName("mobile_no");
+
+                entity.Property(e => e.Token)
+                    .HasMaxLength(255)
+                    .IsUnicode(false)
+                    .HasColumnName("token");
+            });
+
             OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
+
 }

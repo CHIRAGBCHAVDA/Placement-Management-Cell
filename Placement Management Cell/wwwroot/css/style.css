@@ -96,7 +96,7 @@
   }
   
 
-  .login-section,.registraion-section {
+  .login-section,.registraion-section,verification-section {
     background-color: #f8f9fa;
     padding: 20px 0;
   }

@@ -22,11 +22,13 @@ namespace PlacementManagementCell.Models
         public string Password { get; set; } = null!;
 
         [NotMapped]
-        [Compare("Password",ErrorMessage ="Confirm Password must be identical as Password...!!")]
-        public string ConfirmPassword { get; set; }
+        [Compare("Password", ErrorMessage = "Password and Confirm Password must be same...")]
+        public string ConfirmPassword { get; set; } = null!;
         public string? Resume { get; set; }
         public string? Token { get; set; }
         public DateTime? TokenCreatedAt { get; set; }
         public string? Avatar { get; set; }
+        public bool? IsVerified { get; set; }
+        public DateTime? CreatedAt { get; set; }
     }
 }

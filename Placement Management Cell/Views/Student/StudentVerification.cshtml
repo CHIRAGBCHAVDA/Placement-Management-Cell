@@ -1,0 +1,43 @@
+﻿@model PlacementManagementCell.Models.ViewModels.StudentVerificationViewModel
+
+@if (TempData["otp-wrong"] != null)
+{
+    string str = TempData["otp-wrong"].ToString();
+    <partial name="_ToastFail" model="@str" />
+}
+else if (TempData["Verification-mail"] != null)
+{
+    string str = TempData["Verification-mail"].ToString();
+    <partial name="_ToastSuccess" model="@str" />
+}
+<section class="verification-section">
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="login-box p-4">
+                    <h2 class="text-center mb-4">Student Verification</h2>
+                    <form method="post" asp-action="StudentVerification">
+                        <div class="form-group mb-3">
+                            <label asp-for="EnrollmentNo" for="EnrollmentNo" class="form-label">Enrollment No</label>
+                            <input asp-for="EnrollmentNo" type="text" class="form-control" id="EnrollmentNo"
+                                   placeholder="Enter EnrollmentNo">
+                            <span  class="text-danger"></span>
+
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="OTP" for="password" class="form-label">OTP:</label>
+                            <div class="password-input-container">
+                                <input asp-for="OTP" type="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary px-4 py-2">Log In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

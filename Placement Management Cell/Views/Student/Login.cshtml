@@ -10,59 +10,30 @@
 }
 
 
-<div class="toast-div me-0 d-absolute">
 
-    @if (TempData["user-login-success"] != null || TempData["reg-success"] != null)
+
+@if (TempData["user-login-fail"] != null || TempData["reg-success"] != null)
+{
+
+
+    @if (TempData["user-login-fail"] != null)
     {
-        @*<!-- jQuery -->*@
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-
-        @if (TempData["user-login-success"] != null)
-        {
-            <script type="text/javascript">
-                toastr.success('@TempData["user-login-success"]', { "toastClass": "custom-toast-success" });
-            </script>
-        }
-        else
-        {
-            <script type="text/javascript">
-                toastr.success('@TempData["reg-success"]', { "toastClass": "custom-toast-success" });
-            </script>
-        }
-
+        string str = TempData["user-login-fail"].ToString();
+        <partial name="_ToastFail" model="@str" />
     }
-    else if (TempData["user-login-fail"] != null || TempData["reg-fail"] != null)
+    else
     {
-       @* <script src="~/lib/jquery/dist/jquery.min.js"></script>*@
-        @*<!-- jQuery -->*@
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-        @if (TempData["user-login-fail"] != null)
-        {
-            <script type="text/javascript">
-                toastr.error('TempData["user-login-fail"]'@*, { "toastClass": "custom-toast-error" }*@);
-            </script>
-        }
-        else
-        {
-            <script type="text/javascript">
-                toastr.error('@TempData["reg-fail"]', { "toastClass": "custom-toast-error" });
-            </script>
-        }
+        string str = TempData["reg-success"].ToString();
+        <partial name="_ToastSuccess" model="@str" />
     }
-    @*else if (TempData["reset-success"] != null)
-    {
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-        <script type="text/javascript">
-            toastr.success('@TempData["reset-success"]', { "toastClass": "custom-toast-success" });
-        </script>
-    }*@
+}
+else if (TempData["reset-success"] != null)
+{
+    string str = TempData["reset-success"].ToString();
+    <partial name="_ToastSuccess" model="@str" />
+}
 
-</div>
+
 
 <section class="login-section">
     <div class="container">
