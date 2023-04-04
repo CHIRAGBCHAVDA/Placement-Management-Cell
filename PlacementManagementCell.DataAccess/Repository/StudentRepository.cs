@@ -49,7 +49,7 @@ namespace PlacementManagementCell.DataAccess.Repository
         }
 
         public bool RegisterStudent(Student student)
-        {
+         {
             //string email, string body, string subject
             //find student in major 
             var studentInMajor = _db.Studentmajors.FirstOrDefault(s => s.EnrollmentNo.Equals(student.EnrollmentNumber));

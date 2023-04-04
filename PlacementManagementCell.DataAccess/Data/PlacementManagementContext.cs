@@ -21,6 +21,7 @@ namespace PlacementManagementCell.DataAccess.Data
         }
 
         public virtual DbSet<Company> Companies { get; set; } = null!;
+        public virtual DbSet<CompanyApplication> CompanyApplications { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
         public virtual DbSet<Studentmajor> Studentmajors { get; set; } = null!;
 
@@ -76,6 +77,43 @@ namespace PlacementManagementCell.DataAccess.Data
                 entity.Property(e => e.ToDate).HasColumnType("date");
 
                 entity.Property(e => e.TrainingInfo).HasColumnType("text");
+            });
+
+            modelBuilder.Entity<CompanyApplication>(entity =>
+            {
+                entity.HasKey(e => e.ApplicationId)
+                    .HasName("PK__companyA__3BCBDCF27D2C5E14");
+
+                entity.ToTable("companyApplication");
+
+                entity.Property(e => e.ApplicationId).HasColumnName("application_id");
+
+                entity.Property(e => e.CompanyId).HasColumnName("companyId");
+
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("date")
+                    .HasColumnName("created_at")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.DeletedAt)
+                    .HasColumnType("date")
+                    .HasColumnName("deleted_at")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.EnrollmentNo)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("enrollment_no");
+
+                entity.HasOne(d => d.Company)
+                    .WithMany(p => p.CompanyApplications)
+                    .HasForeignKey(d => d.CompanyId)
+                    .HasConstraintName("FK__companyAp__compa__03F0984C");
+
+                entity.HasOne(d => d.EnrollmentNoNavigation)
+                    .WithMany(p => p.CompanyApplications)
+                    .HasForeignKey(d => d.EnrollmentNo)
+                    .HasConstraintName("FK__companyAp__enrol__02FC7413");
             });
 
             modelBuilder.Entity<Student>(entity =>

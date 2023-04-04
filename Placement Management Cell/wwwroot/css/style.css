@@ -142,3 +142,34 @@
     height:150px;
     overflow-y:auto;
 }
+
+
+
+#btnToApply {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-out;
+}
+
+    #btnToApply::before,
+    #btnToApply::after {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: 0;
+        background-color: #007bff;
+        transition: all 0.4s ease-out;
+    }
+
+    #btnToApply::before {
+        left: 0;
+    }
+
+    #btnToApply::after {
+        right: 0;
+    }
+
+    #btnToApply:hover::before {
+        width: 100%;
+    }

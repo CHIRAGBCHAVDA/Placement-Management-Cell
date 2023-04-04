@@ -25,7 +25,7 @@ namespace PlacementManagementCell.DataAccess.Repository
 
         public List<CompanyCard> getCompanyCards()
         {
-            var companyCard = from c in _db.Companies
+                var companyCard = from c in _db.Companies
                               where c.NoOfVacancy > 0
                               select new CompanyCard()
                               {
@@ -90,6 +90,24 @@ namespace PlacementManagementCell.DataAccess.Repository
         {
             var company = _db.Companies.Where(c => c.CompanyId == companyId).FirstOrDefault();
             return company;
+        }
+        public bool ApplyCompanyById(long companyId,string enrollmentNo)
+        {
+            try
+            {
+                var companyApplication = new CompanyApplication()
+                {
+                    CompanyId = companyId,
+                    EnrollmentNo = enrollmentNo
+                };
+                _db.CompanyApplications.Add(companyApplication);
+                _db.SaveChanges();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

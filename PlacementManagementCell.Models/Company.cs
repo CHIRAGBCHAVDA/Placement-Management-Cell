@@ -5,7 +5,12 @@ namespace PlacementManagementCell.Models
 {
     public partial class Company
     {
-        public int CompanyId { get; set; }
+        public Company()
+        {
+            CompanyApplications = new HashSet<CompanyApplication>();
+        }
+
+        public long CompanyId { get; set; }
         public string? Name { get; set; }
         public string? Technology { get; set; }
         public long? Package { get; set; }
@@ -22,5 +27,7 @@ namespace PlacementManagementCell.Models
         public string? FilePath { get; set; }
         public string? CompanyLogo { get; set; }
         public string? City { get; set; }
+
+        public virtual ICollection<CompanyApplication> CompanyApplications { get; set; }
     }
 }

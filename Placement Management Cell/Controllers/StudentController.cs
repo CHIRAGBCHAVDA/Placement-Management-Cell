@@ -247,5 +247,13 @@ namespace Placement_Management_Cell.Controllers
                 return RedirectToAction("StudentVerification", "Student");
             }
         }
+
+        [HttpPost]
+        public IActionResult ApplyCompany(int companyId)
+        {
+            var BaseResponseModel = _unitOfWork.CompanyRepo.ApplyCompanyById(companyId, HttpContext.Session.GetString("erNo"));
+            TempData["company-apply-success"] = "Your application is submitted";
+            return RedirectToAction("CompanyDetail", "Student",companyId);
+        }
     }
 }

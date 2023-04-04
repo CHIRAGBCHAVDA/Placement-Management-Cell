@@ -7,6 +7,11 @@ namespace PlacementManagementCell.Models
 {
     public partial class Student
     {
+        public Student()
+        {
+            CompanyApplications = new HashSet<CompanyApplication>();
+        }
+
         public string EnrollmentNumber { get; set; } = null!;
         public string FirstName { get; set; } = null!;
         public string? MiddleName { get; set; }
@@ -20,9 +25,8 @@ namespace PlacementManagementCell.Models
         public string MobileNumber { get; set; } = null!;
         public string EmailAddress { get; set; } = null!;
         public string Password { get; set; } = null!;
-
         [NotMapped]
-        [Compare("Password", ErrorMessage = "Password and Confirm Password must be same...")]
+        [Compare("Password",ErrorMessage ="Password and Confirm Password must be matched")]
         public string ConfirmPassword { get; set; } = null!;
         public string? Resume { get; set; }
         public string? Token { get; set; }
@@ -30,5 +34,7 @@ namespace PlacementManagementCell.Models
         public string? Avatar { get; set; }
         public bool? IsVerified { get; set; }
         public DateTime? CreatedAt { get; set; }
+
+        public virtual ICollection<CompanyApplication> CompanyApplications { get; set; }
     }
 }

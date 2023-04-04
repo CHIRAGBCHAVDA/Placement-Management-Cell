@@ -50,3 +50,19 @@ function searchMissions() {
 function companyDetails(companyId) {
     window.location.href = `/Student/CompanyDetail?companyId=` + companyId;
 }
+
+function CompanyApply(companyId) {
+    $.ajax({
+        type: "POST",
+        url: "/Student/ApplyCompany",
+        data: {
+            companyId: companyId
+        },
+        success: function (result) {
+            console.log(result);
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+        }
+    });
+}

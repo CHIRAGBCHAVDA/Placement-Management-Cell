@@ -8,7 +8,7 @@ namespace PlacementManagementCell.Models.ViewModels
 {
     public class CompanyCard
     {
-        public int CompanyId { get; set; }
+        public long CompanyId { get; set; }
         public string? Name { get; set; }
         public string? Technology { get; set; }
         public long? Package { get; set; }

@@ -14,5 +14,6 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
         public List<CompanyCard> getCompanyCards();
         public CompanyCardsTotalViewModel getCompanyCards(string? searchKeyword,int pageNum, [DefaultValue(1)] int sortBy);
         public Company getCompanyById(long companyId);
+        public bool ApplyCompanyById(long companyId,string enrollmentNo);
     }
 }
