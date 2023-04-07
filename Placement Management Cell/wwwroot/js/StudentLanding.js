@@ -22,13 +22,18 @@ $(document).ready(function () {
 });
 
 function getFilter(pg) {
+    var fromApplications = false;
+    if (window.location.href == 'https://localhost:44357/Student/StudentApplication') {
+        fromApplications = true;
+    }
     $.ajax({
         type: "POST",
         url: "/Student/CompanyFilter",
         data: {
             "searchKeyword": searchKeyword,
             "pageNum": pg,
-            "sortBy" : selectedOption
+            "sortBy": selectedOption,
+            "fromApplications" : fromApplications
         },
         success: function (result) {
             $(".company-cards-wrapper-div").html(result);

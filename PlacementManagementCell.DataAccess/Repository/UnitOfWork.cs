@@ -17,11 +17,13 @@ namespace PlacementManagementCell.DataAccess.Repository
             _db = db;
             StudentRepo = new StudentRepository(_db);
             CompanyRepo = new CompanyRepository(_db);
+            TPORepo = new TPORepository(_db);
         }
 
 
         public IStudentRepository StudentRepo { get; }
         public ICompanyRepository CompanyRepo { get; }
+        public ITPORepository TPORepo { get; }
 
 
         public void Save()

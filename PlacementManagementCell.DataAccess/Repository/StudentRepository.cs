@@ -50,8 +50,6 @@ namespace PlacementManagementCell.DataAccess.Repository
 
         public bool RegisterStudent(Student student)
          {
-            //string email, string body, string subject
-            //find student in major 
             var studentInMajor = _db.Studentmajors.FirstOrDefault(s => s.EnrollmentNo.Equals(student.EnrollmentNumber));
             var checkIfMultipleReg = _db.Students.FirstOrDefault(s => s.EnrollmentNumber.Equals(student.EnrollmentNumber));
             if (studentInMajor != null && checkIfMultipleReg==null)
@@ -107,6 +105,15 @@ namespace PlacementManagementCell.DataAccess.Repository
         public void changePassword  (Student student)
         {
             _db.Update(student);
+        }
+        public List<Company> getAppliedCompanies(string enrollmentNo)
+        {
+            var companies = _db.CompanyApplications
+            .Where(ca => ca.EnrollmentNo == enrollmentNo)
+            .Select(ca => ca.Company)
+            .ToList();
+
+            return companies;
         }
     }
 }

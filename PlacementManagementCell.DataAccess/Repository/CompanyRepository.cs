@@ -46,6 +46,35 @@ namespace PlacementManagementCell.DataAccess.Repository
 
             return companyCard.ToList();
         }
+        public List<CompanyCard> getCompanyApplicationCards(string enrollmentNo)
+        {
+            var companies = _db.CompanyApplications
+            .Where(ca => ca.EnrollmentNo == enrollmentNo)
+            .Select(ca => ca.Company)
+            .ToList();
+
+            var companyApplicationCards = from c in companies
+                                          where c.NoOfVacancy > 0
+                                          select new CompanyCard()
+                                          {
+                                              CompanyId = c.CompanyId,
+                                              Name = c.Name,
+                                              Technology = c.Technology,
+                                              Package = c.Package,
+                                              Title = c.Title,
+                                              BriefDesc = c.BriefDesc,
+                                              FromDate = c.FromDate,
+                                              ToDate = c.ToDate,
+                                              NoOfVacancy = c.NoOfVacancy,
+                                              Deadline = c.Deadline,
+                                              CompanyLogo = c.CompanyLogo,
+                                              City = c.City
+                                          };
+            allCompCount = companyApplicationCards.Count();
+
+            return companyApplicationCards.ToList();
+
+        }
 
         public CompanyCardsTotalViewModel getCompanyCards(string? searchKeyword, int pageNum, [DefaultValue(1)] int sortBy)
         {
@@ -86,11 +115,52 @@ namespace PlacementManagementCell.DataAccess.Repository
             return CompanyCardTotal;
         }
         
+
+        public CompanyCardsTotalViewModel getCompanyApplicationCards(string enrollmentNo,string? searchKeyword, int pageNum, [DefaultValue(1)] int sortBy)
+        {
+            var filteredApplications = getCompanyApplicationCards(enrollmentNo);
+            allCompCount = filteredApplications.Count();
+            if (searchKeyword != null)
+            {
+                filteredApplications = filteredApplications.Where(cm => cm.Title.ToLower().Contains(searchKeyword.ToLower()) || cm.Technology.Contains(searchKeyword)).ToList();
+            }
+
+            switch (sortBy)
+            {
+                case 1:
+                    filteredApplications = filteredApplications.OrderBy(c => c.Name).ToList();
+                    break;
+                case 2:
+                    filteredApplications = filteredApplications.OrderByDescending(c => c.Package).ToList();
+                    break;
+                case 3:
+                    filteredApplications = filteredApplications.OrderBy(c => c.Package).ToList();
+                    break;
+                case 4:
+                    filteredApplications = filteredApplications.OrderBy(c => c.Deadline).ToList();
+                    break;
+            }
+
+            var totalCompanies = filteredApplications.Count();
+
+
+            filteredApplications = filteredApplications.Skip((pageNum - 1) * 3).Take(3).ToList();
+
+            var CompanyCardTotal = new CompanyCardsTotalViewModel()
+            {
+                CompanyCards = filteredApplications,
+                TotalCompanies = totalCompanies
+            };
+
+            return CompanyCardTotal;
+        }
         public Company getCompanyById(long companyId)
         {
             var company = _db.Companies.Where(c => c.CompanyId == companyId).FirstOrDefault();
             return company;
         }
+
+
         public bool ApplyCompanyById(long companyId,string enrollmentNo)
         {
             try
@@ -109,5 +179,7 @@ namespace PlacementManagementCell.DataAccess.Repository
                 return false;
             }
         }
+    
+    
     }
 }

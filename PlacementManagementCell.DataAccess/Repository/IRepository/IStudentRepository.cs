@@ -19,5 +19,6 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
         Student getStudentByToken(string token);
         public void changePassword(Student student);
         public Student getStudentByErNo(string erNo);
+        public List<Company> getAppliedCompanies(string enrollmentNo);
     }
 }

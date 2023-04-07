@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace PlacementManagementCell.DataAccess.Repository.IRepository
 {
-    public interface IUnitOfWork
+    public interface ITPORepository
     {
-        IStudentRepository StudentRepo { get; }
-        ICompanyRepository CompanyRepo { get; }
-        ITPORepository TPORepo { get; }
-        void Save();
+
     }
 }

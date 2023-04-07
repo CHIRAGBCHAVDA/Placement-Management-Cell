@@ -1,0 +1,121 @@
+﻿@{
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+<partial name="_TPOHeader" />
+
+<div class="container main-newapp-wrapper">
+
+    <div class="newapp-form d-flex flex-column">
+        <form id="newCompanyForm">
+            <div class="company-image m-auto text-center my-3 p-4">
+                @*<label for="company-img p-4" style="height:175px;width:175px" class="rounded-circle align-items-center justify-content-center border border-dark m-auto text-center d-flex">
+                    <img src="~/assets/AMZN.png" class="rounded-circle" style="height:150px;">
+                </label>
+                <input type="file" id="company-img" class="d-none" placeholder="Image Upload"/>*@
+                <label for="company-img" style="height: 175px; width: 175px;" class="rounded-circle border border-dark m-auto text-center overflow-hidden">
+                    <img src="/assets/Upload Company Logo Here.png" id="compImg" class="rounded-circle h-100 w-100" alt="Company Logo">
+                </label>
+                <input type="file" id="company-img" class="d-none" placeholder="Image Upload" accept="image/*">
+
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="company-name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="company-name" placeholder="Enter company name">
+                </div>
+                <div class="col-md-6">
+                    <label for="company-technology" class="form-label">Technology:</label>
+                    <input type="text" class="form-control" id="company-technology" placeholder="Enter required technology">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="company-title" class="form-label">Title:</label>
+                    <input type="text" class="form-control" id="company-title" placeholder="Enter job title">
+                </div>
+                <div class="col-md-6">
+                    <label for="company-package" class="form-label">Package:</label>
+                    <input type="number" class="form-control" id="company-package" placeholder="Enter package amount">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label for="company-brief-desc" class="form-label">Brief Description:</label>
+                    <textarea class="form-control" id="company-brief-desc" rows="3" placeholder="Enter a brief description of the job"></textarea>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label for="ck-editor-company-longdesc" class="form-label">Long Description:</label>
+                    <textarea class="ck-editor" id="ck-editor-company-longdesc">
+
+                    </textarea>
+                    <script>
+                        CKEDITOR.replace('ck-editor-company-longdesc', {
+                            customConfig: '/js/CKConfig.js'
+                        });
+                    </script>
+
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="company-from-date" class="form-label">From Date:</label>
+                    <input type="date" class="form-control" id="company-from-date">
+                </div>
+                <div class="col-md-6">
+                    <label for="company-to-date" class="form-label">To Date:</label>
+                    <input type="date" class="form-control" id="company-to-date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="no-of-vacancy" class="form-label">No of Vacancy</label>
+                    <input type="number" class="form-control" id="no-of-vacancy" name="no-of-vacancy" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="deadline" class="form-label">Deadline</label>
+                    <input type="date" class="form-control" id="deadline" name="deadline" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="company-address" class="form-label">Company Address</label>
+                <textarea class="form-control" id="company-address" name="company-address" rows="3" required></textarea>
+            </div>
+             <div class="mb-3">
+                <label for="company-traininginfo" class="form-label">Training Information</label>
+                <textarea class="form-control" id="company-traininginfo" name="company-traininginfo" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="company-benefits" class="form-label">Benefits and Perks</label>
+                <textarea class="form-control" id="company-benefits" name="company-benefits" rows="3" required></textarea>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="company-drive" class="form-label">File Link</label>
+                    <input type="text" class="form-control" id="company-drive" placeholder="www.drive.google.com/folder/...">
+                </div>
+                <div class="col-md-6">
+                    <label for="company-city" class="form-label">Job Location</label>
+                    <input type="text" class="form-control" id="company-city" placeholder="Enter Job Location">
+                </div>
+            </div>
+
+            <button type="submit" class="px-3 my-3 btn btn-primary bg-white border border-dark text-dark rounded-pill">
+                Publish &nbsp; <i class="bi bi-arrow-right"></i>
+            </button>
+
+            
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+
+<script src="~/js/TpoLanding.js"></script>

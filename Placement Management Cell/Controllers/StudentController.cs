@@ -195,10 +195,41 @@ namespace Placement_Management_Cell.Controllers
             return View(StudentCompany);
         }
 
-        [HttpPost]
-        public IActionResult CompanyFilter(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy)
+
+        public IActionResult StudentApplication(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy)
         {
-            var comp = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy);
+            var enrollmentno = HttpContext.Session.GetString("erNo");
+            var student = _unitOfWork.StudentRepo.getStudentByErNo(enrollmentno);
+            var companies = _unitOfWork.CompanyRepo.getCompanyApplicationCards(enrollmentno,searchKeyword,pageNum,sortBy);
+
+            StudentHeaderViewModel StudentHeader = new StudentHeaderViewModel()
+            {
+                EnrollmentNo = enrollmentno,
+                Avatar = student.Avatar,
+                Name = student.FirstName + " " + student.LastName
+            };
+            
+
+            StudentCompanyViewModel StudentCompany = new StudentCompanyViewModel()
+            {
+                StudentHeader = StudentHeader,
+                CompanyCardsTotal = companies
+            };
+            return View(StudentCompany);
+        }
+
+        [HttpPost]
+        public IActionResult CompanyFilter(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy,bool fromApplications)
+        {
+            var comp = new CompanyCardsTotalViewModel();
+            if (fromApplications)
+            {
+                comp = _unitOfWork.CompanyRepo.getCompanyApplicationCards(HttpContext.Session.GetString("erNo"), searchKeyword, pageNum, sortBy);
+            }
+            else
+            {
+            comp = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy);
+            }
             return PartialView("_CompanyCardList",comp);
         }
 

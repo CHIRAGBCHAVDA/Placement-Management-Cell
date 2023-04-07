@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\assets\\TCS.NS_BIG.png"
     },
     {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\Upload Company Logo Here.png",
+      "PackagePath": "staticwebassets\\assets\\Upload Company Logo Here.png"
+    },
+    {
       "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\company-1.jpg",
       "PackagePath": "staticwebassets\\assets\\company-1.jpg"
     },
@@ -97,8 +101,16 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\js\\CkConfig.js",
+      "PackagePath": "staticwebassets\\js\\CkConfig.js"
+    },
+    {
       "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\js\\StudentLanding.js",
       "PackagePath": "staticwebassets\\js\\StudentLanding.js"
+    },
+    {
+      "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\js\\TpoLanding.js",
+      "PackagePath": "staticwebassets\\js\\TpoLanding.js"
     },
     {
       "Id": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\js\\site.js",

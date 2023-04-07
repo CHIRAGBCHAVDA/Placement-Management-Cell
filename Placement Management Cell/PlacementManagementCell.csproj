@@ -29,8 +29,4 @@
     <ProjectReference Include="..\PlacementManagementCell.Models\PlacementManagementCell.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\assets\" />
-  </ItemGroup>
-
 </Project>
