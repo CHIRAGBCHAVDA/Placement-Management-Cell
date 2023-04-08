@@ -1,57 +1,84 @@
-﻿@{
+﻿@using PlacementManagementCell.Models.ViewModels;
+@{
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
-
+@model NewCompanyParams
 <partial name="_TPOHeader" />
 
 <div class="container main-newapp-wrapper">
 
     <div class="newapp-form d-flex flex-column">
-        <form id="newCompanyForm">
-            <div class="company-image m-auto text-center my-3 p-4">
-                @*<label for="company-img p-4" style="height:175px;width:175px" class="rounded-circle align-items-center justify-content-center border border-dark m-auto text-center d-flex">
-                    <img src="~/assets/AMZN.png" class="rounded-circle" style="height:150px;">
-                </label>
-                <input type="file" id="company-img" class="d-none" placeholder="Image Upload"/>*@
-                <label for="company-img" style="height: 175px; width: 175px;" class="rounded-circle border border-dark m-auto text-center overflow-hidden">
-                    <img src="/assets/Upload Company Logo Here.png" id="compImg" class="rounded-circle h-100 w-100" alt="Company Logo">
-                </label>
-                <input type="file" id="company-img" class="d-none" placeholder="Image Upload" accept="image/*">
+        <h2 class="text-black text-center my-4">New Company Details</h2>
+        <form id="newCompanyForm" class="bg-light p-4">
+            <div class="row mb-3">
+                <div class="col-md-8">
+                    <div class="mb-3">
+                        <label for="company-name" class="form-label">Name:</label>
+                        <input asp-for="name" type="text" class="form-control" id="company-name" placeholder="Enter company name">
+                        <span class="text-danger" asp-validation-for="name"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="company-technology" class="form-label">Technology:</label>
+                        <input asp-for="technology" type="text" class="form-control" id="company-technology" placeholder="Enter required technology">
+                        <span class="text-danger" asp-validation-for="technology"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="company-package" class="form-label">Package:</label>
+                        <input asp-for="package" type="number" class="form-control" id="company-package" placeholder="Enter package amount">
+                        <span class="text-danger" asp-validation-for="package"></span>
+                    </div>
+                </div>
+                <div class="company-image m-auto text-center my-3 p-4 col-md-4">
+                    <label for="company-img" style="height: 200px; width: 200px;" class=" border border-dark m-auto text-center overflow-hidden">
+                        <img src="/assets/Upload Company Logo Here.png" id="compImg" class=" h-100 w-100" alt="Company Logo">
+                    </label>
+                    <input type="file" id="company-img" class="d-none" placeholder="Image Upload" accept="image/*">
+                </div>
 
+                
             </div>
 
+   
             <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="company-name" class="form-label">Name:</label>
-                    <input type="text" class="form-control" id="company-name" placeholder="Enter company name">
-                </div>
-                <div class="col-md-6">
-                    <label for="company-technology" class="form-label">Technology:</label>
-                    <input type="text" class="form-control" id="company-technology" placeholder="Enter required technology">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <label for="company-title" class="form-label">Title:</label>
-                    <input type="text" class="form-control" id="company-title" placeholder="Enter job title">
+                    <input asp-for="title" type="text" class="form-control" id="company-title" placeholder="Enter job title">
+                    <span class="text-danger" asp-validation-for="title"></span>
                 </div>
-                <div class="col-md-6">
-                    <label for="company-package" class="form-label">Package:</label>
-                    <input type="number" class="form-control" id="company-package" placeholder="Enter package amount">
+                <div class="col-md-4">
+                    <label for="Company-branch" class="form-label">Eligible Branch</label>
+                    <select asp-for="BID" class="form-select" aria-label="Default select example" id="Company-branch">
+                        <option selected>Select your Engineering Branch</option>
+                        <option value="1">All</option>
+                        <option value="2">Information Technology</option>
+                        <option value="3">Computer Engineering</option>
+                        <option value="4">EC Engineering</option>
+                        <option value="5">Mechanical Engineering</option>
+                        <option value="6">Civil Engineering</option>
+                        <option value="7">Production Engineering</option>
+                    </select>
+                    <span class="text-danger" asp-validation-for="BID"></span>
+
                 </div>
+
+      
             </div>
             <div class="row mb-3">
                 <div class="col-12">
                     <label for="company-brief-desc" class="form-label">Brief Description:</label>
-                    <textarea class="form-control" id="company-brief-desc" rows="3" placeholder="Enter a brief description of the job"></textarea>
+                    <textarea asp-for="briefdesc" class="form-control" id="company-brief-desc" rows="3" placeholder="Enter a brief description of the job"></textarea>
+                    <span class="text-danger" asp-validation-for="briefdesc"></span>
+
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col-12">
                     <label for="ck-editor-company-longdesc" class="form-label">Long Description:</label>
-                    <textarea class="ck-editor" id="ck-editor-company-longdesc">
+                    <textarea asp-for="longdesc" class="ck-editor" id="ck-editor-company-longdesc">
 
                     </textarea>
+                    <span class="text-danger" asp-validation-for="longdesc"></span>
+
                     <script>
                         CKEDITOR.replace('ck-editor-company-longdesc', {
                             customConfig: '/js/CKConfig.js'
@@ -62,35 +89,52 @@
             </div>
             <div class="row mb-3">
                 <div class="col-md-6">
+                    <label for="company-maxbacklog" class="form-label">Max Backlog:</label>
+                    <input type="number" class="form-control" id="company-maxbacklog">
+                </div>
+                <div class="col-md-6">
+                    <label for="company-mincgpa" class="form-label">Minimum CGPA:</label>
+                    <input type="text" class="form-control" id="company-mincgpa">
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <div class="col-md-6">
                     <label for="company-from-date" class="form-label">From Date:</label>
-                    <input type="date" class="form-control" id="company-from-date">
+                    <input asp-for="fromdate" type="date" class="form-control" id="company-from-date">
+                    <span class="text-danger" asp-validation-for="fromdate"></span>
+
                 </div>
                 <div class="col-md-6">
                     <label for="company-to-date" class="form-label">To Date:</label>
-                    <input type="date" class="form-control" id="company-to-date">
+                    <input asp-for="todate" type="date" class="form-control" id="company-to-date">
+                    <span class="text-danger" asp-validation-for="todate"></span>
+
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="no-of-vacancy" class="form-label">No of Vacancy</label>
-                    <input type="number" class="form-control" id="no-of-vacancy" name="no-of-vacancy" required>
+                    <input type="number" class="form-control" id="no-of-vacancy" name="no-of-vacancy" >
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="deadline" class="form-label">Deadline</label>
-                    <input type="date" class="form-control" id="deadline" name="deadline" required>
+                    <input asp-for="deadline" type="date" class="form-control" id="deadline" name="deadline" >
+                    <span class="text-danger" asp-validation-for="deadline"></span>
                 </div>
             </div>
-            <div class="mb-3">
-                <label for="company-address" class="form-label">Company Address</label>
-                <textarea class="form-control" id="company-address" name="company-address" rows="3" required></textarea>
-            </div>
+            
              <div class="mb-3">
                 <label for="company-traininginfo" class="form-label">Training Information</label>
-                <textarea class="form-control" id="company-traininginfo" name="company-traininginfo" rows="3" required></textarea>
+                <textarea asp-for="traininginfo" class="form-control" id="company-traininginfo" name="company-traininginfo" rows="3" ></textarea>
+                <span class="text-danger" asp-validation-for="traininginfo"></span>
+
             </div>
             <div class="mb-3">
                 <label for="company-benefits" class="form-label">Benefits and Perks</label>
-                <textarea class="form-control" id="company-benefits" name="company-benefits" rows="3" required></textarea>
+                <textarea asp-for="benefits" class="form-control" id="company-benefits" name="company-benefits" rows="3" ></textarea>
+                <span class="text-danger" asp-validation-for="benefits"></span>
             </div>
             <div class="row mb-3">
                 <div class="col-md-6">
@@ -99,8 +143,16 @@
                 </div>
                 <div class="col-md-6">
                     <label for="company-city" class="form-label">Job Location</label>
-                    <input type="text" class="form-control" id="company-city" placeholder="Enter Job Location">
+                    <input asp-for="city" type="text" class="form-control" id="company-city" placeholder="Enter Job Location">
+                    <span class="text-danger" asp-validation-for="city"></span>
+
                 </div>
+            </div>
+            <div class="mb-3">
+                <label for="company-address" class="form-label">Company Address</label>
+                <textarea asp-for="address" class="form-control" id="company-address" name="company-address" rows="3" ></textarea>
+                <span class="text-danger" asp-validation-for="address"></span>
+
             </div>
 
             <button type="submit" class="px-3 my-3 btn btn-primary bg-white border border-dark text-dark rounded-pill">
@@ -116,6 +168,12 @@
 </div>
 
 
-
+@*@if (IsSectionDefined("scripts"))
+{
+    @RenderSection("scripts")
+}*@
+@section scripts{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+}
 
 <script src="~/js/TpoLanding.js"></script>

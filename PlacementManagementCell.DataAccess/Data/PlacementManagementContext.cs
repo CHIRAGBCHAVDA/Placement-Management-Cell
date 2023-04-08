@@ -20,6 +20,7 @@ namespace PlacementManagementCell.DataAccess.Data
         {
         }
 
+        public virtual DbSet<Branch> Branches { get; set; } = null!;
         public virtual DbSet<Company> Companies { get; set; } = null!;
         public virtual DbSet<CompanyApplication> CompanyApplications { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
@@ -36,6 +37,20 @@ namespace PlacementManagementCell.DataAccess.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Branch>(entity =>
+            {
+                entity.ToTable("branch");
+
+                entity.Property(e => e.BranchId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("branch_id");
+
+                entity.Property(e => e.BranchName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("branch_name");
+            });
+
             modelBuilder.Entity<Company>(entity =>
             {
                 entity.ToTable("Company");
@@ -43,6 +58,10 @@ namespace PlacementManagementCell.DataAccess.Data
                 entity.Property(e => e.CompanyId).HasColumnName("CompanyID");
 
                 entity.Property(e => e.BenefitsAndPerks).HasColumnType("text");
+
+                entity.Property(e => e.BranchId)
+                    .HasColumnName("branch_id")
+                    .HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.BriefDesc).HasColumnType("text");
 
@@ -62,6 +81,15 @@ namespace PlacementManagementCell.DataAccess.Data
 
                 entity.Property(e => e.LongDesc).HasColumnType("text");
 
+                entity.Property(e => e.MinBacklog)
+                    .HasColumnName("min_backlog")
+                    .HasDefaultValueSql("((0))");
+
+                entity.Property(e => e.MinCgpa)
+                    .HasColumnType("decimal(3, 2)")
+                    .HasColumnName("min_cgpa")
+                    .HasDefaultValueSql("((2.3))");
+
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -77,6 +105,11 @@ namespace PlacementManagementCell.DataAccess.Data
                 entity.Property(e => e.ToDate).HasColumnType("date");
 
                 entity.Property(e => e.TrainingInfo).HasColumnType("text");
+
+                entity.HasOne(d => d.Branch)
+                    .WithMany(p => p.Companies)
+                    .HasForeignKey(d => d.BranchId)
+                    .HasConstraintName("FK__Company__branch___2A164134");
             });
 
             modelBuilder.Entity<CompanyApplication>(entity =>
@@ -132,6 +165,8 @@ namespace PlacementManagementCell.DataAccess.Data
                     .HasColumnType("decimal(5, 2)")
                     .HasColumnName("be_cgpa");
 
+                entity.Property(e => e.BranchId).HasColumnName("branch_id");
+
                 entity.Property(e => e.CreatedAt)
                     .HasColumnType("datetime")
                     .HasColumnName("created_at")
@@ -149,11 +184,6 @@ namespace PlacementManagementCell.DataAccess.Data
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("email_address");
-
-                entity.Property(e => e.EngineeringBranch)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("engineering_branch");
 
                 entity.Property(e => e.FirstName)
                     .HasMaxLength(50)
@@ -205,6 +235,11 @@ namespace PlacementManagementCell.DataAccess.Data
                 entity.Property(e => e.TwelthPercentage)
                     .HasColumnType("decimal(5, 2)")
                     .HasColumnName("twelth_percentage");
+
+                entity.HasOne(d => d.Branch)
+                    .WithMany(p => p.Students)
+                    .HasForeignKey(d => d.BranchId)
+                    .HasConstraintName("FK__Students__branch__2B0A656D");
             });
 
             modelBuilder.Entity<Studentmajor>(entity =>

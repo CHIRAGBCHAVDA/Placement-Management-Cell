@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlacementManagementCell.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
 {
     public interface ITPORepository
     {
-
+        BaseResponseViewModel AddNewCompany(NewCompanyParams companyParams);
     }
 }

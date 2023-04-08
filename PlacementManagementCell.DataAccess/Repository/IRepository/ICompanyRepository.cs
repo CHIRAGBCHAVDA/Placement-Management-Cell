@@ -11,8 +11,8 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
 {
     public interface ICompanyRepository
     {
-        public List<CompanyCard> getCompanyCards();
-        public CompanyCardsTotalViewModel getCompanyCards(string? searchKeyword,int pageNum, [DefaultValue(1)] int sortBy);
+        public List<CompanyCard> getCompanyCards(int? branchId);
+        public CompanyCardsTotalViewModel getCompanyCards(string? searchKeyword,int pageNum, [DefaultValue(1)] int sortBy, int? branchId);
         public Company getCompanyById(long companyId);
         public bool ApplyCompanyById(long companyId,string enrollmentNo);
         public CompanyCardsTotalViewModel getCompanyApplicationCards(string enrollmentNo, string? searchKeyword, int pageNum, [DefaultValue(1)] int sortBy);

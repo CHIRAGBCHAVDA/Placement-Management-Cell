@@ -23,10 +23,10 @@ namespace PlacementManagementCell.DataAccess.Repository
             _db = db;
         }
 
-        public List<CompanyCard> getCompanyCards()
+        public List<CompanyCard> getCompanyCards(int? branchId)
         {
                 var companyCard = from c in _db.Companies
-                              where c.NoOfVacancy > 0
+                              where c.BranchId == branchId || c.BranchId==1
                               select new CompanyCard()
                               {
                                   CompanyId = c.CompanyId,
@@ -40,7 +40,8 @@ namespace PlacementManagementCell.DataAccess.Repository
                                   NoOfVacancy = c.NoOfVacancy,
                                   Deadline = c.Deadline,
                                   CompanyLogo = c.CompanyLogo,
-                                  City = c.City
+                                  City = c.City,
+                                  BranchId = c.BranchId
                               };
             allCompCount = companyCard.Count();
 
@@ -76,9 +77,9 @@ namespace PlacementManagementCell.DataAccess.Repository
 
         }
 
-        public CompanyCardsTotalViewModel getCompanyCards(string? searchKeyword, int pageNum, [DefaultValue(1)] int sortBy)
+        public CompanyCardsTotalViewModel getCompanyCards(string? searchKeyword, int pageNum, [DefaultValue(1)] int sortBy,int? branchId)
         {
-            var filteredCompanies = getCompanyCards();
+            var filteredCompanies = getCompanyCards(branchId);
             allCompCount = filteredCompanies.Count();
             if(searchKeyword != null)
             {

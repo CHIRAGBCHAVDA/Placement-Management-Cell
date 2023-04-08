@@ -53,14 +53,17 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
-                                    <label asp-for="EngineeringBranch" for="engineering-branch" class="form-label">Engineering Branch</label>
-                                    <select asp-for="EngineeringBranch" class="form-select" aria-label="Default select example">
+                                    <label asp-for="BranchId" for="engineering-branch" class="form-label">Engineering Branch</label>
+                                    <select asp-for="BranchId" class="form-select" aria-label="Default select example" id="engineering-branch">
                                         <option selected>Select your Engineering Branch</option>
-                                        <option value="it">Information Technology</option>
-                                        <option value="mech">Mechanical</option>
-                                        <option value="civil">Civil</option>
+                                        <option value="2">Information Technology</option>
+                                        <option value="3">Computer Engineering</option>
+                                        <option value="4">EC Engineering</option>
+                                        <option value="5">Mechanical Engineering</option>
+                                        <option value="6">Civil Engineering</option>
+                                        <option value="7">Production Engineering</option>
                                     </select>
-                                    <span asp-validation-for="EngineeringBranch" class="text-danger"></span>
+                                    <span asp-validation-for="BranchId" class="text-danger"></span>
 
                                 </div>
                             </div>
@@ -76,7 +79,7 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label asp-for="TenthPercentage" for="10th-percentage" class="form-label">10th Percentage</label>
-                                    <input asp-for="TenthPercentage" type="number" class="form-control" id="10th-percentage"
+                                    <input asp-for="TenthPercentage" type="text" class="form-control" id="10th-percentage"
                                            placeholder="Enter your 10th Percentage">
                                     <span asp-validation-for="TenthPercentage" class="text-danger"></span>
 
@@ -85,7 +88,7 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label asp-for="TwelthPercentage" for="12th-percentage" class="form-label">12th Percentage</label>
-                                    <input asp-for="TwelthPercentage" type="number" class="form-control" id="12th-percentage"
+                                    <input asp-for="TwelthPercentage" type="text" class="form-control" id="12th-percentage"
                                            placeholder="Enter your 12th Percentage">
                                     <span asp-validation-for="TwelthPercentage" class="text-danger"></span>
 

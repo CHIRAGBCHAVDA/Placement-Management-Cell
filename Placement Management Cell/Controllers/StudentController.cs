@@ -178,7 +178,8 @@ namespace Placement_Management_Cell.Controllers
         {
             string erNo = HttpContext.Session.GetString("erNo");
             var student = _unitOfWork.StudentRepo.getStudentByErNo(erNo);
-            var companyCards = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy);
+            HttpContext.Session.SetString("BranchId", student.BranchId.ToString());
+            var companyCards = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy,student.BranchId);
             StudentHeaderViewModel StudentHeader = new StudentHeaderViewModel()
             {
                 EnrollmentNo = erNo,
@@ -222,13 +223,14 @@ namespace Placement_Management_Cell.Controllers
         public IActionResult CompanyFilter(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy,bool fromApplications)
         {
             var comp = new CompanyCardsTotalViewModel();
+            var enrollmentno = HttpContext.Session.GetString("erNo");
             if (fromApplications)
             {
                 comp = _unitOfWork.CompanyRepo.getCompanyApplicationCards(HttpContext.Session.GetString("erNo"), searchKeyword, pageNum, sortBy);
             }
             else
             {
-            comp = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy);
+            comp = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy,int.Parse(HttpContext.Session.GetString("BranchId")));
             }
             return PartialView("_CompanyCardList",comp);
         }

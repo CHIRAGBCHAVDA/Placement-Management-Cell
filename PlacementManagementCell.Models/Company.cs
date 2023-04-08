@@ -27,7 +27,11 @@ namespace PlacementManagementCell.Models
         public string? FilePath { get; set; }
         public string? CompanyLogo { get; set; }
         public string? City { get; set; }
+        public int? BranchId { get; set; }
+        public int? MinBacklog { get; set; }
+        public decimal? MinCgpa { get; set; }
 
+        public virtual Branch? Branch { get; set; }
         public virtual ICollection<CompanyApplication> CompanyApplications { get; set; }
     }
 }

@@ -20,6 +20,7 @@ namespace PlacementManagementCell.Models.ViewModels
         public DateTime? Deadline { get; set; }
         public string? CompanyLogo { get; set; }
         public string? City { get; set; }
+        public int? BranchId { get; set; }
 
     }
 }
