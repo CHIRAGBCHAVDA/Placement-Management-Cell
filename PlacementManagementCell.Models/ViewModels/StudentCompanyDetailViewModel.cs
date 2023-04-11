@@ -10,5 +10,6 @@ namespace PlacementManagementCell.Models.ViewModels
     {
         public StudentHeaderViewModel StudentHeader { get; set; } = new StudentHeaderViewModel();
         public Company Company { get; set; } = new Company();
+        public bool IsApplied { get; set; }
     }
 }

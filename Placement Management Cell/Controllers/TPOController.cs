@@ -30,6 +30,12 @@ namespace Placement_Management_Cell.Controllers
             var viewModel = _unitOfWork.TPORepo.AddNewCompany(companyParams);
             return Json(viewModel);
         }
+
+        public IActionResult TPOAllCompanyDashboard()
+        {
+            TPOCompanyCardTotal viewModel = _unitOfWork.CompanyRepo.getTPOCompaniesCard();
+            return View(viewModel);
+        }
     }
 
 }

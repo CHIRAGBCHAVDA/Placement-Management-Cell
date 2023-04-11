@@ -65,6 +65,7 @@ function CompanyApply(companyId) {
         },
         success: function (result) {
             console.log(result);
+            $('body').html(result);
         },
         error: function (xhr, status, error) {
             console.log(error);

@@ -1,0 +1,35 @@
+﻿@using PlacementManagementCell.Models.ViewModels;
+@model TPOCompanyCardTotal
+
+@{
+    Layout = "~/Views/Shared/_StudentLayout.cshtml";
+}
+
+
+<partial name="_TPOHeader" />
+<hr />
+
+<script src="~/js/StudentLanding.js"></script>
+
+<div class="container mt-2">
+    <div class="row justify-content-between" style="min-height:50px">
+        <div class="ps-0 col-12  col-sm-12 col-md-6">
+            <input class="form-control me-2 border h-100"
+                   type="search"
+                   placeholder="Search Companies..."
+                   aria-label="Search" id="search-query" />
+        </div>
+        <div class="mt-3 ps-0 col-6 col-sm-6 col-md-3 text-md-end mt-md-0">
+
+            <select class="form-select mx-2 h-100" aria-label="Default select example" id="sortingCompany">
+                <option selected>Sort By</option>
+                <option value="1"> Name [A-Z]</option>
+                <option value="2"> Package  &nbsp; &#8595;</option>
+                <option value="3"> Package &nbsp;  &#8593;</option>
+                <option value="4"> Deadline &nbsp; &#x23F3;</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<partial name="_TPOCompCardDashboard" model="Model" />

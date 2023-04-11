@@ -1,0 +1,99 @@
+﻿@using PlacementManagementCell.Models.ViewModels;
+@model TPOCompanyCardTotal
+
+<div class="container mt-4 mb-5">
+    <div class="row px-0 view-group">
+
+        @foreach (var item in Model.TpoCompanyCards)
+        {
+            <div class="item col-md-6 col-sm-12 col-lg-4 my-4">
+                <div class="card card-to-hover thumbnail shadow card-to-scale">
+                    <div class="card bg-dark">
+                        <img src="@item.CompanyLogo" class="card-img-top m-auto" alt="..." style="height: 250px; width: 200px; object-fit: contain" />
+                        <div class="card-img-overlay card-hover-overlay">
+                            <div class="d-flex flex-column hidden-info">
+                                <div class="location-field text-dark bg-light px-2 py-1 rounded-pill text-center hidden-info ">
+                                    <i class="bi bi-person-badge text-decoration-none fst-normal"> Students Applied &nbsp; @item.StudentsApplied</i>
+                                </div>
+                                <div class="bg-light p-1 my-1 text-center rounded-pill border-0 recommendation-grid-list hidden-info" id="tempToCoworker">
+                                    <i class="bi bi-currency-rupee text-decoration-none fst-normal text-dark">
+                                        Package &nbsp;
+                                        @{
+                                            if (item.Package >= 100000)
+                                            {
+                                                @($"{item.Package / 100000} L")
+                                            }
+                                            else
+                                            {
+                                                @item.Package
+                                            }
+                                        }
+                                    </i>
+                                </div>
+                                <div class="bg-light p-1 my-1 text-center rounded-pill border-0 recommendation-grid-list hidden-info" id="tempToCoworker">
+                                    <i class=" bi bi-mortarboard text-decoration-none fst-normal text-dark"> Branch All </i>
+                                </div>
+                                <div class=" bg-light p-1 my-1 text-center rounded-pill border-0 recommendation-grid-list hidden-info " id="tempToCoworker">
+                                    <i class=" bi bi-hourglass-split text-decoration-none fst-normal  text-dark "> Deadline @item.Deadline.ToString().Substring(0, 11) </i>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center fs-1 d-flex justify-content-evenly pt-2 pb-4">
+                        <button class="btn bg-white border-0">
+                            <i class="bi bi-download tpo-comp-xlsheet"></i>
+                        </button>
+                        <a href="">
+                            <i class="bi bi-envelope-plus-fill"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
+
+
+@{
+    double d = Model.TotalCompanies / 3.0;
+    //double d = 3;
+    double pages = Math.Ceiling(d);
+}
+
+
+<div class="mt-4 text-center m-auto">
+    <nav aria-label="Page navigation example" class="company-listing-pagination-nav m-auto" style="width:fit-content">
+        <ul class="pagination">
+            <li class="page-item mx-2">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true"><i class="bi bi-chevron-double-left"></i></span>
+                </a>
+            </li>
+            <li class="page-item mx-2">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                </a>
+            </li>
+            @for (int i = 1; i <= @pages; i++)
+            {
+                <li class="page-item" id="@i"><a class="page-link">@i</a></li>
+            }
+
+
+            <li class="page-item mx-2">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                </a>
+            </li>
+            <li class="page-item mx-2">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true"><i class="bi bi-chevron-double-right"></i></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

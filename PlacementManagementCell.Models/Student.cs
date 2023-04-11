@@ -25,8 +25,8 @@ namespace PlacementManagementCell.Models
         public string EmailAddress { get; set; } = null!;
         public string Password { get; set; } = null!;
         [NotMapped]
-        [Compare("Password", ErrorMessage = "Password and Confirm Password must be matched")]
-        public string ConfirmPassword { get; set; } = null!;
+        [Compare("Password", ErrorMessage = "Confirm password must be matched with Password!!")]
+        public string ConfirmPassword { get; set; }
         public string? Resume { get; set; }
         public string? Token { get; set; }
         public DateTime? TokenCreatedAt { get; set; }
@@ -34,6 +34,7 @@ namespace PlacementManagementCell.Models
         public bool? IsVerified { get; set; }
         public DateTime? CreatedAt { get; set; }
         public int? BranchId { get; set; }
+        public int? ActiveBacklog { get; set; }
 
         public virtual Branch? Branch { get; set; }
         public virtual ICollection<CompanyApplication> CompanyApplications { get; set; }

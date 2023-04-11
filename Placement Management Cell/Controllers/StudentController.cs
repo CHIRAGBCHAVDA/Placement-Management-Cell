@@ -249,7 +249,8 @@ namespace Placement_Management_Cell.Controllers
             StudentCompanyDetailViewModel StudentCompany = new StudentCompanyDetailViewModel()
             {
                 Company = company,
-                StudentHeader = StudentHeader
+                StudentHeader = StudentHeader,
+                IsApplied = _unitOfWork.CompanyRepo.IsStudentAppliedForThisCompany(student.EnrollmentNumber, companyId)
             };
 
             return View(StudentCompany);
@@ -282,11 +283,18 @@ namespace Placement_Management_Cell.Controllers
         }
 
         [HttpPost]
-        public IActionResult ApplyCompany(int companyId)
+        public IActionResult ApplyCompany(long companyId)
         {
             var BaseResponseModel = _unitOfWork.CompanyRepo.ApplyCompanyById(companyId, HttpContext.Session.GetString("erNo"));
-            TempData["company-apply-success"] = "Your application is submitted";
-            return RedirectToAction("CompanyDetail", "Student",companyId);
+            if (BaseResponseModel.Success)
+            {
+                TempData["company-apply-success"] = BaseResponseModel.Message;
+            }
+            else
+            {
+                TempData["company-apply-fail"] = BaseResponseModel.Message;
+            }
+            return RedirectToAction("CompanyDetail", new { companyId = companyId });
         }
     }
 }

@@ -162,25 +162,71 @@ namespace PlacementManagementCell.DataAccess.Repository
         }
 
 
-        public bool ApplyCompanyById(long companyId,string enrollmentNo)
+        public BaseResponseViewModel ApplyCompanyById(long companyId,string enrollmentNo)
         {
+            BaseResponseViewModel baseResponse = new BaseResponseViewModel();
             try
             {
-                var companyApplication = new CompanyApplication()
+                var company = getCompanyById(companyId);
+                var student = _db.Students.FirstOrDefault(student => student.EnrollmentNumber.Equals(enrollmentNo));
+
+                if(student.BeCgpa >= company.MinCgpa && student.ActiveBacklog<=company.MinBacklog)
                 {
-                    CompanyId = companyId,
-                    EnrollmentNo = enrollmentNo
-                };
-                _db.CompanyApplications.Add(companyApplication);
-                _db.SaveChanges();
-                return true;
+                    var companyApplication = new CompanyApplication()
+                    {
+                        CompanyId = companyId,
+                        EnrollmentNo = enrollmentNo
+                    };
+                    _db.CompanyApplications.Add(companyApplication);
+                    _db.SaveChanges();
+                    baseResponse.StatusCode = 200;
+                    baseResponse.Success = true;
+                    baseResponse.Message = "Your application is submitted!!";
+                }
+                else
+                {
+                    baseResponse.StatusCode = 500;
+                    baseResponse.Success = false;
+                    baseResponse.Message = "You're Not meeting company's eligibility criteria....!!";
+                }
+                
+                
+                return baseResponse;
             }
             catch(Exception ex)
             {
-                return false;
+                return baseResponse;
             }
         }
-    
-    
+
+        public bool IsStudentAppliedForThisCompany(string erNo, long companyId)
+        {
+           var isApplied =  _db.CompanyApplications.FirstOrDefault(company => company.EnrollmentNo.Equals(erNo) && company.CompanyId == companyId);
+            if (isApplied != null) return true;
+            return false;
+        }
+
+        public TPOCompanyCardTotal getTPOCompaniesCard()
+        {
+            var comp = _db.Companies.Select(company => new TPOCompanyCard()
+            {
+                CompanyId = company.CompanyId,
+                CompanyLogo = company.CompanyLogo,
+                BranchId = company.BranchId,
+                Deadline = company.Deadline,
+                Package = company.Package,
+                StudentsApplied = company.CompanyApplications.Count()
+            });
+
+            TPOCompanyCardTotal toReturn = new TPOCompanyCardTotal()
+            {
+                TpoCompanyCards = comp.ToList(),
+                TotalCompanies = comp.Count()
+            };
+
+
+            return toReturn;
+        }
+
     }
 }

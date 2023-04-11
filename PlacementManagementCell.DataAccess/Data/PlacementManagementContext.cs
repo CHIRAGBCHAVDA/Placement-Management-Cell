@@ -159,6 +159,10 @@ namespace PlacementManagementCell.DataAccess.Data
                     .IsUnicode(false)
                     .HasColumnName("enrollment_number");
 
+                entity.Property(e => e.ActiveBacklog)
+                    .HasColumnName("active_backlog")
+                    .HasDefaultValueSql("((0))");
+
                 entity.Property(e => e.Avatar).HasColumnType("text");
 
                 entity.Property(e => e.BeCgpa)
