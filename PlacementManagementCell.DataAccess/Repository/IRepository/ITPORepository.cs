@@ -10,5 +10,6 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
     public interface ITPORepository
     {
         BaseResponseViewModel AddNewCompany(NewCompanyParams companyParams);
+        List<StudentXLSXViewModel> GetStudentApplicationsFromCompanyId(long companyId);
     }
 }

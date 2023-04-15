@@ -31,7 +31,34 @@
                                     </i>
                                 </div>
                                 <div class="bg-light p-1 my-1 text-center rounded-pill border-0 recommendation-grid-list hidden-info" id="tempToCoworker">
-                                    <i class=" bi bi-mortarboard text-decoration-none fst-normal text-dark"> Branch All </i>
+                                    @if(item.BranchId==1){
+                                        <i class=" bi bi-mortarboard text-decoration-none fst-normal text-dark"> Branch All </i>
+                                    }
+                                    else if (item.BranchId == 2)
+                                    {
+                                        <i class=" bi bi-mortarboard text-decoration-none fst-normal text-dark"> Branch IT </i>
+                                    }
+                                    else if (item.BranchId == 3)
+                                    {
+                                        <i class=" bi bi-mortarboard text-decoration-none fst-normal text-dark"> Branch CE </i>
+                                    }
+                                    else if (item.BranchId == 4)
+                                    {
+                                        <i class=" bi bi-mortarboard text-decoration-none fst-normal text-dark"> Branch EC </i>
+                                    }
+                                    else if (item.BranchId == 5)
+                                    {
+                                        <i class=" bi bi-mortarboard text-decoration-none fst-normal text-dark"> Branch Mech </i>
+                                    }
+                                    else if (item.BranchId == 6)
+                                    {
+                                        <i class=" bi bi-mortarboard text-decoration-none fst-normal text-dark"> Branch Civil </i>
+                                    }
+                                    else if (item.BranchId == 7)
+                                    {
+                                        <i class=" bi bi-mortarboard text-decoration-none fst-normal text-dark"> Branch Prod </i>
+                                    }
+
                                 </div>
                                 <div class=" bg-light p-1 my-1 text-center rounded-pill border-0 recommendation-grid-list hidden-info " id="tempToCoworker">
                                     <i class=" bi bi-hourglass-split text-decoration-none fst-normal  text-dark "> Deadline @item.Deadline.ToString().Substring(0, 11) </i>
@@ -41,11 +68,12 @@
                         </div>
                     </div>
                     <div class="text-center fs-1 d-flex justify-content-evenly pt-2 pb-4">
-                        <button class="btn bg-white border-0">
-                            <i class="bi bi-download tpo-comp-xlsheet"></i>
-                        </button>
-                        <a href="">
-                            <i class="bi bi-envelope-plus-fill"></i>
+                        <a href"#" data-companyid="@item.CompanyId" class="tpo-comp-xlsheet">
+                            <i class="bi bi-download "></i>
+                        </a>
+                        <a class="tpo-comp-mail" data-bs-toggle="modal" data-bs-target="#chartModal"
+                        data-companyid="@item.CompanyId">
+                            <i class="bi bi-graph-up"></i>
                         </a>
                     </div>
 
@@ -96,4 +124,27 @@
             </li>
         </ul>
     </nav>
+</div>
+
+
+
+
+
+<div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Pie Chart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <canvas id="chart_canvas">
+                    <h2 class="chart-message">No data available</h2>
+                </canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

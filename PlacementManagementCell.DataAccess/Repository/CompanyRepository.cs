@@ -211,6 +211,8 @@ namespace PlacementManagementCell.DataAccess.Repository
             var comp = _db.Companies.Select(company => new TPOCompanyCard()
             {
                 CompanyId = company.CompanyId,
+                CompanyName = company.Name,
+                Technology = company.Technology,
                 CompanyLogo = company.CompanyLogo,
                 BranchId = company.BranchId,
                 Deadline = company.Deadline,
@@ -223,7 +225,77 @@ namespace PlacementManagementCell.DataAccess.Repository
                 TpoCompanyCards = comp.ToList(),
                 TotalCompanies = comp.Count()
             };
+            return toReturn;
+        }
 
+        public TPOCompanyCardTotal getTPOCompaniesCard(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy)
+        {
+            var compCards = getTPOCompaniesCard().TpoCompanyCards;
+            if (searchKeyword != null)
+            {
+                compCards = compCards.Where(c => c.CompanyName.ToLower().Contains(searchKeyword.ToLower())).ToList();
+            }
+
+            switch (sortBy)
+            {
+                case 1:
+                    compCards = compCards.OrderBy(c => c.CompanyName).ToList();
+                    break;
+                case 2:
+                    compCards = compCards.OrderByDescending(c => c.Package).ToList();
+                    break;
+                case 3:
+                    compCards = compCards.OrderBy(c => c.Package).ToList();
+                    break;
+                case 4:
+                    compCards = compCards.OrderBy(c => c.Deadline).ToList();
+                    break;
+            }
+
+            var compcardsTotal = compCards.Count();
+            compCards = compCards.Skip((pageNum - 1) * 3).Take(3).ToList();
+
+            TPOCompanyCardTotal cardsToReturn = new TPOCompanyCardTotal()
+            {
+                TotalCompanies = compcardsTotal,
+                TpoCompanyCards = compCards
+            };
+
+            return cardsToReturn;
+        }
+
+        public ChartDataViewModel GetChartData(long companyId)
+        {
+            var temp = _db.CompanyApplications.Where(c => c.CompanyId == companyId && c.EnrollmentNoNavigation.BranchId== 1).Count();
+
+            var temp2 = _db.CompanyApplications.Where(c => c.CompanyId == companyId && c.Company.BranchId == 3).Count();
+
+
+            var IT = _db.CompanyApplications.Where(c => c.CompanyId == companyId && c.EnrollmentNoNavigation.BranchId == 2).Count();
+
+            var Computer = _db.CompanyApplications.Where(c => c.CompanyId == companyId && c.EnrollmentNoNavigation.BranchId == 3).Count();
+    
+            var EC = _db.CompanyApplications.Where(c => c.CompanyId == companyId && c.EnrollmentNoNavigation.BranchId == 4).Count();
+
+
+            var Mech = _db.CompanyApplications.Where(c => c.CompanyId == companyId && c.EnrollmentNoNavigation.BranchId == 5).Count();
+
+
+
+            var Civil = _db.CompanyApplications.Where(c => c.CompanyId == companyId && c.EnrollmentNoNavigation.BranchId== 6).Count();
+
+
+            var Prod = _db.CompanyApplications.Where(c => c.CompanyId == companyId && c.EnrollmentNoNavigation.BranchId == 7).Count();
+
+            ChartDataViewModel toReturn = new ChartDataViewModel()
+            {
+                IT = IT,
+                Computer = Computer,
+                EC = EC,
+                Mech = Mech,
+                Civil = Civil ,
+                Prod = Prod 
+            };
 
             return toReturn;
         }

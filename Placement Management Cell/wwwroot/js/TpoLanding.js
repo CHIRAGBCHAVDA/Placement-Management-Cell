@@ -1,3 +1,6 @@
+var searchKeyword = "";
+var selectedOption = 1;
+
 $(document).ready(function () {
     var imgOfCompany = "";
     var compUpload = $("#company-img");
@@ -7,7 +10,7 @@ $(document).ready(function () {
         const file = this.files[0];
         const reader = new FileReader();
 
-        reader.onload =  function () {
+        reader.onload = function () {
             compImg.attr('src', reader.result);
             imgOfCompany = reader.result;
             console.log(reader.result);
@@ -51,25 +54,25 @@ $(document).ready(function () {
             type: 'POST',
             url: '/TPO/NewCompany',
             data: {
-                "avatar" : avatar,
-                "name" : name,
-                "technology" : technology,
+                "avatar": avatar,
+                "name": name,
+                "technology": technology,
                 "title": title,
-                "BID":parseInt(BranchId),
-                "package" : package,
-                "briefdesc" : briefdesc,
+                "BID": parseInt(BranchId),
+                "package": package,
+                "briefdesc": briefdesc,
                 "longdesc": longdesc,
                 "maxBacklog": MaxBacklog,
-                "minCgpa":MinCgpa,
-                "fromdate" : fromdate,
-                "todate" : todate,
-                "vacancy" : vacancy,
-                "deadline" : deadline,
-                "address" : address,
-                "traininginfo" : traininginfo,
-                "benefits" : benefits,
-                "driveLink" : driveLink,
-                "city" : city
+                "minCgpa": MinCgpa,
+                "fromdate": fromdate,
+                "todate": todate,
+                "vacancy": vacancy,
+                "deadline": deadline,
+                "address": address,
+                "traininginfo": traininginfo,
+                "benefits": benefits,
+                "driveLink": driveLink,
+                "city": city
             },
             success: function (result) {
                 console.log(result);
@@ -78,7 +81,7 @@ $(document).ready(function () {
                 }
                 else {
 
-                toastr.error(result.message);
+                    toastr.error(result.message);
                 }
             },
             error: function (xhr, status, error) {
@@ -86,25 +89,166 @@ $(document).ready(function () {
             }
         });
 
-        console.log(
-            avatar,
-            name ,
-            technology ,
-            title ,
-            package, 
-            briefdesc, 
-            longdesc ,
-            fromdate ,
-            todate ,
-            vacancy ,
-            deadline ,
-            address ,
-            traininginfo ,
-            benefits ,
-            driveLink ,
-            city 
+    });
 
-        )
-    })
+    $("#1").addClass('active');
+    $('#TPOCompDashboard-wrapper').on('click', '.page-item', function () {
+        $('.pagination .page-item').removeClass('active');
+        $(this).addClass('active');
+        getFilter($(this).attr('id'));
+    });
 
-})
+    $("#search-query").keyup(function () {
+        searchMissions();
+    });
+
+    $('#sortingCompany').change(function () {
+        selectedOption = $(this).val();
+        console.log("The value of sorting is : " + selectedOption);// Get the selected option value
+        getFilter(); // Call the sortMissions function with the selected option
+    });
+
+    $('#sortingCompany').change(function () {
+        selectedOption = $(this).val();
+        console.log("The value of sorting is : " + selectedOption);// Get the selected option value
+        getFilter(); // Call the sortMissions function with the selected option
+    });
+
+
+    $(document).on('click', ".tpo-comp-xlsheet", function () {
+        //var companyId = $(this).data("companyid");
+        //$.ajax({
+        //    type: "post",
+        //    url: "/TPO/DownloadStudentDetails",
+        //    data: {
+        //        companyId:companyId
+        //    },
+        //    success: function (result) {
+        //        var toast = new bootstrap.Toast(document.querySelector('.toast-container'));
+        //        toast.show({
+        //            autohide: true,
+        //            delay: 5000,
+        //            body: 'Data Downloaded successfully....!!',
+        //            header: 'Bootstrap Toast'
+        //        });
+        //        console.log(typeof(result));
+        //    },
+        //    error: function (xhr, status, error) {
+        //        toastr.error("Could not download the data....!");
+        //        console.log(error);
+        //    }
+        //});
+
+        var companyId = $(this).data("companyid");
+        toastr.success("Data will be downloaded shortly...!!")
+        setTimeout(function () {
+            window.location.href = "/TPO/DownloadStudentDetails?companyId=" + companyId;
+        }, 2000);
+    });
+
+    $(document).on('click', ".tpo-comp-mail", function () {
+        var companyId = $(this).data("companyid");
+
+        $.ajax({
+            type: "get",
+            url: "/TPO/getChartData",
+            data: {
+                companyId:companyId
+            },
+            success: function (result) {
+                console.log(result);
+                var IT = result.it;
+                var Computer = result.computer;
+                var EC = result.ec;
+                var Mech = result.mech;
+                var Civil = result.civil;
+                var Prod = result.prod;
+
+                if (window.myChart) {
+                    window.myChart.destroy();
+                }
+                
+                
+
+                var ctx = document.getElementById('chart_canvas').getContext('2d');
+
+                window.myChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['IT', 'Computer', 'EC','Mechanical','Civil','Production'],
+                        datasets: [{
+                            label: 'Interested Students',
+                            data: [IT,Computer,EC,Mech,Civil,Prod],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.5)',
+                                'rgba(54, 162, 235, 0.5)',
+                                'rgba(255, 206, 86, 0.5)',
+                                'rgba(75, 192, 192, 0.5)',
+                                'rgba(153, 102, 255, 0.5)',
+                                'rgba(255, 159, 64, 0.5)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: {
+                            animateRotate: true,
+                            animateScale: true
+                        }
+                    }
+                });
+
+
+                if (IT + Computer + EC + Mech + Civil + Prod == 0) {
+                    $('#chart_canvas .chart-message').show();
+                    return;
+                } else {
+                    $('#chart_canvas .chart-message').hide();
+                }
+                // Open the modal
+                $('#chartModal').modal('show');
+            },
+            error: function (xhr, status, error) {
+                console.log(error);
+            }
+        });
+
+    });
+});
+
+
+function searchMissions() {
+    searchKeyword = document.getElementById("search-query").value;
+    console.log(searchKeyword)
+    getFilter(1);
+}
+
+
+function getFilter(pg) {
+    $.ajax({
+        type: "POST",
+        url: "/TPO/TPOCompCardFilter",
+        data: {
+            "searchKeyword": searchKeyword,
+            "pageNum": pg,
+            "sortBy": selectedOption
+        },
+        success: function (result) {
+            $("#TPOCompDashboard-wrapper").html(result);
+            $(`.page-item#${pg}`).addClass("active");
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+        }
+    });
+}

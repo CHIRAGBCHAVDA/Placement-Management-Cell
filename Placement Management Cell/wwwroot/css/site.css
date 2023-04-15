@@ -93,3 +93,10 @@ body {
     .card-to-hover:hover img {
         opacity: 0.7;
     }
+
+.chart-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

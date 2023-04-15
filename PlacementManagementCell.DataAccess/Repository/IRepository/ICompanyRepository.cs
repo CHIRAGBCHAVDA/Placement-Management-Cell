@@ -19,5 +19,8 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
 
         public bool IsStudentAppliedForThisCompany(string erNo, long companyId);
         public TPOCompanyCardTotal getTPOCompaniesCard();
+        public TPOCompanyCardTotal getTPOCompaniesCard(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy);
+
+        public ChartDataViewModel GetChartData(long companyId);
     }
 }

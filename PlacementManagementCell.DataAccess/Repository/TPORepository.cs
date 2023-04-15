@@ -62,5 +62,30 @@ namespace PlacementManagementCell.DataAccess.Repository
             }
             return baseResponse;
         }
+
+        public List<StudentXLSXViewModel> GetStudentApplicationsFromCompanyId(long companyId)
+        {
+            var temp = _db.CompanyApplications.Where(ca => ca.CompanyId == companyId).AsQueryable()
+               .Select(student => new StudentXLSXViewModel()
+               {
+                   EnrollmentNumber = student.EnrollmentNoNavigation.EnrollmentNumber,
+                   FirstName = student.EnrollmentNoNavigation.FirstName,
+                   MiddleName = student.EnrollmentNoNavigation.MiddleName,
+                   LastName = student.EnrollmentNoNavigation.LastName,
+                   DateOfBirth = student.EnrollmentNoNavigation.DateOfBirth,
+                   TenthPercentage = student.EnrollmentNoNavigation.TenthPercentage,
+                   TwelthPercentage = student.EnrollmentNoNavigation.TwelthPercentage,
+                   DiplomaCgpa = student.EnrollmentNoNavigation.DiplomaCgpa,
+                   BeCgpa = student.EnrollmentNoNavigation.BeCgpa,
+                   MobileNumber = student.EnrollmentNoNavigation.MobileNumber,
+                   EmailAddress = student.EnrollmentNoNavigation.EmailAddress,
+                   Resume = student.EnrollmentNoNavigation.Resume,
+                   Avatar = student.EnrollmentNoNavigation.Avatar,
+                   BranchName = student.EnrollmentNoNavigation.Branch.BranchName,
+                   ActiveBacklog = student.EnrollmentNoNavigation.ActiveBacklog
+               }).ToList();
+
+            return temp;
+        }
     }
 }
