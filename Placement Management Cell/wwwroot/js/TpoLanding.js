@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     compUpload.on('change', function () {
         const file = this.files[0];
+
         const reader = new FileReader();
 
         reader.onload = function () {
@@ -241,7 +242,7 @@ $(document).ready(function () {
     //        data: { companyId: companyId },
     //        success: function (result) {
     //            debugger;
-    //            $("body").html(result); 
+    //            $("body").html(result);
     //        },
     //        error: function (error) {
     //            console.log(error);
@@ -249,6 +250,8 @@ $(document).ready(function () {
 
     //    });
     //});
+
+    
 
 });
 

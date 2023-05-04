@@ -28,7 +28,7 @@
                             @Model.Name
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item " href="#">Edit Profile</a></li>
+                            <li><button class="dropdown-item" onclick="StudentProfileEdit()">Edit Profile</button></li>
                             <li><a class="dropdown-item" href="#">Contact Us</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item bg-danger" asp-action="Login" asp-controller="Student">Logout</a></li>
@@ -42,8 +42,10 @@
 </nav>
 <hr style="height:2px" />
 
-
-
+<button type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#studentProfileEdit" id="hiddenbtn-for-student-editmodal"></button>
+<div id="Student-Edit-Modal-Wrapper">
+    <partial name="_StudentProfileEdit"  model="new Student()"/>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

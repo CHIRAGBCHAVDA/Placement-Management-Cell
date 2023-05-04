@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sAsmVxIWMVH68tBZ7KxzORhDufCzof1+yxcR0z5TJVc=",
+  "Hash": "ccFtvgqRSn0Pv1QukTbyFmFdJ/B/EGmvHk9hDiF2f+k=",
   "Source": "PlacementManagementCell",
   "BasePath": "_content/PlacementManagementCell",
   "Mode": "Default",
@@ -406,6 +406,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\Upload Company Logo Here.png"
+    },
+    {
+      "Identity": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\Upload-Transparent.png",
+      "SourceId": "PlacementManagementCell",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\",
+      "BasePath": "_content/PlacementManagementCell",
+      "RelativePath": "assets/Upload-Transparent.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\Upload-Transparent.png"
     },
     {
       "Identity": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\css\\site.css",

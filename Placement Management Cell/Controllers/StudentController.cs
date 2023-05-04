@@ -299,5 +299,20 @@ namespace Placement_Management_Cell.Controllers
             }
             return RedirectToAction("CompanyDetail", new { companyId = companyId });
         }
+
+        
+        public IActionResult GetStudentProfile()
+        {
+            var erNo = HttpContext.Session.GetString("erNo");
+            var student = _unitOfWork.StudentRepo.getStudentByErNo(erNo);
+
+            return PartialView("_StudentProfileEdit", student); 
+        }
+
+        [HttpPost]
+        public IActionResult EditStudentProfile(Student student)
+        {
+            return null;
+        }
     }
 }
