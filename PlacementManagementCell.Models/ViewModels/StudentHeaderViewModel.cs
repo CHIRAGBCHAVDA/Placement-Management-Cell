@@ -11,5 +11,7 @@ namespace PlacementManagementCell.Models.ViewModels
         public string Name { get; set; } = string.Empty;
         public string EnrollmentNo { get; set; } = string.Empty;
         public string Avatar { get; set; } = string.Empty;
+
+        public List<StudentNotification> StudentNotifications { get; set; } = new List<StudentNotification>();
     }
 }

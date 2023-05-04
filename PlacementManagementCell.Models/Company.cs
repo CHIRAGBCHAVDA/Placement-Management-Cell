@@ -8,6 +8,7 @@ namespace PlacementManagementCell.Models
         public Company()
         {
             CompanyApplications = new HashSet<CompanyApplication>();
+            Notifications = new HashSet<Notification>();
         }
 
         public long CompanyId { get; set; }
@@ -33,5 +34,6 @@ namespace PlacementManagementCell.Models
 
         public virtual Branch? Branch { get; set; }
         public virtual ICollection<CompanyApplication> CompanyApplications { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
     }
 }

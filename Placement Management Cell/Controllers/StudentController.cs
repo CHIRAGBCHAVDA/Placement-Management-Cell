@@ -184,7 +184,8 @@ namespace Placement_Management_Cell.Controllers
             {
                 EnrollmentNo = erNo,
                 Avatar = student.Avatar,
-                Name = student.FirstName + " " + student.LastName
+                Name = student.FirstName + " " + student.LastName,
+                StudentNotifications = _unitOfWork.StudentRepo.getStudentNotifications()
             };
 
             StudentCompanyViewModel StudentCompany = new StudentCompanyViewModel()
@@ -207,7 +208,8 @@ namespace Placement_Management_Cell.Controllers
             {
                 EnrollmentNo = enrollmentno,
                 Avatar = student.Avatar,
-                Name = student.FirstName + " " + student.LastName
+                Name = student.FirstName + " " + student.LastName,
+                StudentNotifications = _unitOfWork.StudentRepo.getStudentNotifications()
             };
             
 
@@ -243,7 +245,8 @@ namespace Placement_Management_Cell.Controllers
             {
                 EnrollmentNo = student.EnrollmentNumber,
                 Avatar = student.Avatar,
-                Name = student.FirstName + " " + student.LastName
+                Name = student.FirstName + " " + student.LastName,
+                StudentNotifications = _unitOfWork.StudentRepo.getStudentNotifications()
             };
             var company = _unitOfWork.CompanyRepo.getCompanyById(companyId);
             StudentCompanyDetailViewModel StudentCompany = new StudentCompanyDetailViewModel()

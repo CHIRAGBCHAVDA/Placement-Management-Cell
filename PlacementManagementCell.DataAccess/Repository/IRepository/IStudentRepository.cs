@@ -1,4 +1,5 @@
 ﻿using PlacementManagementCell.Models;
+using PlacementManagementCell.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,6 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
         public void changePassword(Student student);
         public Student getStudentByErNo(string erNo);
         public List<Company> getAppliedCompanies(string enrollmentNo);
+        public List<StudentNotification> getStudentNotifications();
     }
 }

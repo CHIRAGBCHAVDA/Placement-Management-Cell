@@ -23,6 +23,7 @@ namespace PlacementManagementCell.DataAccess.Data
         public virtual DbSet<Branch> Branches { get; set; } = null!;
         public virtual DbSet<Company> Companies { get; set; } = null!;
         public virtual DbSet<CompanyApplication> CompanyApplications { get; set; } = null!;
+        public virtual DbSet<Notification> Notifications { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
         public virtual DbSet<Studentmajor> Studentmajors { get; set; } = null!;
 
@@ -31,7 +32,7 @@ namespace PlacementManagementCell.DataAccess.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=.;; initial catalog=PlacementManagement; Trusted_Connection=True");
+                optionsBuilder.UseSqlServer("Data Source=.; initial catalog=PlacementManagement; Trusted_Connection=True");
             }
         }
 
@@ -130,8 +131,7 @@ namespace PlacementManagementCell.DataAccess.Data
 
                 entity.Property(e => e.DeletedAt)
                     .HasColumnType("date")
-                    .HasColumnName("deleted_at")
-                    .HasDefaultValueSql("(getdate())");
+                    .HasColumnName("deleted_at");
 
                 entity.Property(e => e.EnrollmentNo)
                     .HasMaxLength(20)
@@ -147,6 +147,25 @@ namespace PlacementManagementCell.DataAccess.Data
                     .WithMany(p => p.CompanyApplications)
                     .HasForeignKey(d => d.EnrollmentNo)
                     .HasConstraintName("FK__companyAp__enrol__02FC7413");
+            });
+
+            modelBuilder.Entity<Notification>(entity =>
+            {
+                entity.ToTable("notifications");
+
+                entity.Property(e => e.NotificationId).HasColumnName("notification_id");
+
+                entity.Property(e => e.CompanyId).HasColumnName("company_id");
+
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("datetime")
+                    .HasColumnName("created_at")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.HasOne(d => d.Company)
+                    .WithMany(p => p.Notifications)
+                    .HasForeignKey(d => d.CompanyId)
+                    .HasConstraintName("FK__notificat__compa__4F47C5E3");
             });
 
             modelBuilder.Entity<Student>(entity =>

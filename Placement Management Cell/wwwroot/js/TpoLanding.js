@@ -45,6 +45,7 @@ $(document).ready(function () {
         var benefits = $("#company-benefits").val();
         var driveLink = $("#company-drive").val();
         var city = $("#company-city").val();
+        var companyId = $("#company-id-tpo-addedit").val();
 
         console.log(BranchId)
         console.log(MinCgpa)
@@ -54,6 +55,7 @@ $(document).ready(function () {
             type: 'POST',
             url: '/TPO/NewCompany',
             data: {
+                "CompanyId": companyId,
                 "avatar": avatar,
                 "name": name,
                 "technology": technology,
@@ -63,7 +65,7 @@ $(document).ready(function () {
                 "briefdesc": briefdesc,
                 "longdesc": longdesc,
                 "maxBacklog": MaxBacklog,
-                "minCgpa": MinCgpa,
+                "minCgpa": MinCgpa,  
                 "fromdate": fromdate,
                 "todate": todate,
                 "vacancy": vacancy,
@@ -72,11 +74,17 @@ $(document).ready(function () {
                 "traininginfo": traininginfo,
                 "benefits": benefits,
                 "driveLink": driveLink,
-                "city": city
+                "city": city,
+            },
+            beforeSend: function () {
+                $('#loader').removeClass('d-none');     
             },
             success: function (result) {
                 console.log(result);
                 if (result.success) {
+                    setTimeout(function () {
+                        $('#loader').addClass('d-none');
+                    }, 2000);
                     toastr.success(result.message);
                 }
                 else {
@@ -210,10 +218,10 @@ $(document).ready(function () {
 
 
                 if (IT + Computer + EC + Mech + Civil + Prod == 0) {
-                    $('#chart_canvas .chart-message').show();
+                    $('.chart-message').removeClass("d-none");
                     return;
                 } else {
-                    $('#chart_canvas .chart-message').hide();
+                    $('.chart-message').addClass("d-none");
                 }
                 // Open the modal
                 $('#chartModal').modal('show');
@@ -224,6 +232,24 @@ $(document).ready(function () {
         });
 
     });
+
+    //$(document).on('click', ".tpo-comp-edit", function () {
+    //    var companyId = $(this).attr('data-companyid');
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "/TPO/EditCompany",
+    //        data: { companyId: companyId },
+    //        success: function (result) {
+    //            debugger;
+    //            $("body").html(result); 
+    //        },
+    //        error: function (error) {
+    //            console.log(error);
+    //        }
+
+    //    });
+    //});
+
 });
 
 

@@ -23,7 +23,10 @@
                                         @{
                                             if (item.Package >= 100000)
                                             {
-                                                @($"{item.Package / 100000} L")
+                                                decimal packageInLakhs = (decimal)item.Package / 100000;
+                                                packageInLakhs = decimal.Round(packageInLakhs, 1, MidpointRounding.AwayFromZero);
+                                                string packageString = string.Format("{0:N1}", packageInLakhs);
+                                                @($"{packageString} L")
                                             }
                                             else
                                             {

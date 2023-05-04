@@ -5,10 +5,27 @@
 }
 <partial name="_TPOHeader" />
 
+<div id="loader" class="section-loading d-none">
+    <div class="load">
+        <div class="part one"></div>
+        <div class="part two"></div>
+        <div class="part three"></div>
+        <div class="part four"></div>
+    </div>
+</div>  
+
+
 <div class="container main-newapp-wrapper">
 
     <div class="newapp-form d-flex flex-column">
-        <h2 class="text-black text-center my-4">New Company Details</h2>
+        @if (Model!=null && Model.vacancy > 0)
+        {
+            <h2 class="text-black text-center my-4">Edit Company Details</h2>
+        }
+        else
+        {
+            <h2 class="text-black text-center my-4">New Company Details</h2>
+        }
         <form id="newCompanyForm" class="bg-light p-4">
             <div class="row mb-3">
                 <div class="col-md-8">
@@ -28,9 +45,16 @@
                         <span class="text-danger" asp-validation-for="package"></span>
                     </div>
                 </div>
+                <input type="hidden" asp-for="CompanyId" value="@Model.CompanyId" id="company-id-tpo-addedit"/>
                 <div class="company-image m-auto text-center my-3 p-4 col-md-4">
                     <label for="company-img" style="height: 200px; width: 200px;" class=" border border-dark m-auto text-center overflow-hidden">
-                        <img src="/assets/Upload Company Logo Here.png" id="compImg" class=" h-100 w-100" alt="Company Logo">
+                        @if(Model.avatar==null){
+                            <img src="/assets/Upload Company Logo Here.png" id="compImg" class=" h-100 w-100" alt="Company Logo">
+                        }
+                        else
+                        {
+                            <img src="@Model.avatar" id="compImg" class=" h-100 w-100" alt="Company Logo">
+                        }
                     </label>
                     <input type="file" id="company-img" class="d-none" placeholder="Image Upload" accept="image/*">
                 </div>
@@ -90,11 +114,11 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label for="company-maxbacklog" class="form-label">Max Backlog:</label>
-                    <input type="number" class="form-control" id="company-maxbacklog">
+                    <input asp-for="maxBacklog" type="number" class="form-control" id="company-maxbacklog">
                 </div>
                 <div class="col-md-6">
                     <label for="company-mincgpa" class="form-label">Minimum CGPA:</label>
-                    <input type="text" class="form-control" id="company-mincgpa">
+                    <input asp-for="minCgpa" type="text" class="form-control" id="company-mincgpa">
                 </div>
             </div>
 
@@ -116,7 +140,7 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="no-of-vacancy" class="form-label">No of Vacancy</label>
-                    <input type="number" class="form-control" id="no-of-vacancy" name="no-of-vacancy" >
+                    <input asp-for="vacancy" type="number" class="form-control" id="no-of-vacancy" name="no-of-vacancy" >
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="deadline" class="form-label">Deadline</label>

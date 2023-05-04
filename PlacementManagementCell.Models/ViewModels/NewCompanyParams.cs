@@ -10,6 +10,7 @@ namespace PlacementManagementCell.Models.ViewModels
 {
     public class NewCompanyParams
     {
+        public long CompanyId { get; set; }
         public string avatar { get; set; }
 
         [Required(ErrorMessage = "This Field is required")]

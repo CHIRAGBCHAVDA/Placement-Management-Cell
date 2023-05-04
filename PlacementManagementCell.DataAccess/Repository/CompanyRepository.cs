@@ -170,7 +170,7 @@ namespace PlacementManagementCell.DataAccess.Repository
                 var company = getCompanyById(companyId);
                 var student = _db.Students.FirstOrDefault(student => student.EnrollmentNumber.Equals(enrollmentNo));
 
-                if(student.BeCgpa >= company.MinCgpa && student.ActiveBacklog<=company.MinBacklog)
+                if(student.BeCgpa >= company.MinCgpa && student.ActiveBacklog<=company.MinBacklog && (student.BranchId==company.BranchId || company.BranchId==1))   
                 {
                     var companyApplication = new CompanyApplication()
                     {

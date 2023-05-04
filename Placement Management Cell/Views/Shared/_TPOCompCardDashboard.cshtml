@@ -21,7 +21,10 @@
                                         @{
                                             if (item.Package >= 100000)
                                             {
-                                                @($"{item.Package / 100000} L")
+                                                decimal packageInLakhs = (decimal)item.Package / 100000;
+                                                packageInLakhs = decimal.Round(packageInLakhs, 1, MidpointRounding.AwayFromZero);
+                                                string packageString = string.Format("{0:N1}", packageInLakhs);
+                                                @($"{packageString} L")
                                             }
                                             else
                                             {
@@ -71,9 +74,12 @@
                         <a href"#" data-companyid="@item.CompanyId" class="tpo-comp-xlsheet">
                             <i class="bi bi-download "></i>
                         </a>
-                        <a class="tpo-comp-mail" data-bs-toggle="modal" data-bs-target="#chartModal"
+                        <a  class="tpo-comp-mail" data-bs-toggle="modal" data-bs-target="#chartModal"
                         data-companyid="@item.CompanyId">
                             <i class="bi bi-graph-up"></i>
+                        </a>
+                        <a href="@Url.Action("TPOLanding","TPO",new {companyId = item.CompanyId})" asp-da data-companyid="@item.CompanyId" class="tpo-comp-edit">
+                            <i class="bi bi-pencil-square"></i>
                         </a>
                     </div>
 
@@ -139,8 +145,8 @@
             </div>
             <div class="modal-body">
                 <canvas id="chart_canvas">
-                    <h2 class="chart-message">No data available</h2>
                 </canvas>
+                    <h2 class="chart-message">No data available</h2>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

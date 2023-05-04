@@ -9,6 +9,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using PlacementManagementCell.Models.ViewModels;
+using static System.Net.WebRequestMethods;
 
 namespace PlacementManagementCell.DataAccess.Repository
 {
@@ -114,6 +116,21 @@ namespace PlacementManagementCell.DataAccess.Repository
             .ToList();
 
             return companies;
+        }
+
+        public List<StudentNotification> getStudentNotifications()
+        {
+            var toAppend = _db.Notifications.Select(notification => new StudentNotification()
+            {
+                NotificationId = notification.NotificationId,
+                CompanyId = (long)notification.CompanyId,
+                CompanyLogo = notification.Company.CompanyLogo,
+                JobTitle = notification.Company.Title,
+                LinkToRedirect = "https://localhost:44357/Student/CompanyDetail?companyId="+notification.CompanyId.ToString(),
+                Deadline = (DateTime)notification.Company.Deadline
+            });
+
+            return toAppend.OrderByDescending(comp => comp.Deadline).ToList();
         }
     }
 }

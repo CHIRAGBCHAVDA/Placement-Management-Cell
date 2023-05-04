@@ -13,16 +13,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav d-flex justify-content-end w-100 align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" asp-action="StudentLanding" asp-controller="Student">Dashboard</a>
+                    <a class="nav-link active" aria-current="page" asp-action="TPOAllCompanyDashboard" asp-controller="TPO">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-action="StudentApplication" asp-controller="Student"><i class="bi bi-plus-circle"></i> New Applications</a>
+                    <a href="@Url.Action("TPOLanding","TPO",new {companyId = 0})" class="nav-link"><i class="bi bi-plus-circle"></i> New Applications</a>
                 </li>
-                <li class="nav-item">
+               @* <li class="nav-item">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         <i class="bi bi-bell text-decoration-none fst-normal"> &nbsp; Notifications</i>
                     </a>
-                </li>
+                </li>*@
                 <li class="nav-item d-flex flex-column align-items-center ms-4">
                     <a class="nav-link"><img src="https://lh3.googleusercontent.com/ogw/AAEL6sjd9z0L0ePBoKjmBRCpUS6L_Kf21CNyTX883Bv3=s32-c-mo" class="rounded-circle" /></a>
                     <div class="dropdown">
@@ -47,7 +47,7 @@
 
 
 
-
+@*
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -66,3 +66,4 @@
         </div>
     </div>
 </div>
+*@

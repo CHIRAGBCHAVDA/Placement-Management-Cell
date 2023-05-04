@@ -173,3 +173,131 @@
     #btnToApply:hover::before {
         width: 100%;
     }
+
+
+
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 9999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: #080915;
+}
+
+
+
+:root {
+    --dimension-square: 40px;
+    --color: purple;
+}
+
+
+.section-loading {
+    min-height: 100vh;
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: #080915;
+}
+
+    .section-loading .load {
+        height: var(--dimension-square);
+        width: var(--dimension-square);
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-animation: rotate 5s linear infinite;
+        animation: rotate 5s linear infinite;
+    }
+
+        .section-loading .load .part {
+            height: 50%;
+            width: 50%;
+            background-color: var(--color);
+            -webkit-animation: animate .6s ease-in-out infinite alternate;
+            animation: animate .6s ease-in-out infinite alternate;
+        }
+
+        .section-loading .load .one {
+            border-radius: 100% 0 0 0;
+            -webkit-transform-origin: bottom right;
+            -ms-transform-origin: bottom right;
+            transform-origin: bottom right;
+        }
+
+        .section-loading .load .two {
+            border-radius: 0 100% 0 0;
+            -webkit-transform-origin: bottom left;
+            -ms-transform-origin: bottom left;
+            transform-origin: bottom left;
+            -webkit-animation-delay: .2s;
+            animation-delay: .2s;
+        }
+
+        .section-loading .load .three {
+            border-radius: 0 0 0 100%;
+            -webkit-transform-origin: top right;
+            -ms-transform-origin: top right;
+            transform-origin: top right;
+            -webkit-animation-delay: .4s;
+            animation-delay: .4s;
+        }
+
+        .section-loading .load .four {
+            border-radius: 0 0 100% 0;
+            -webkit-transform-origin: top left;
+            -ms-transform-origin: top left;
+            transform-origin: top left;
+            -webkit-animation-delay: .6s;
+            animation-delay: .6s;
+        }
+
+@-webkit-keyframes animate {
+    to {
+        -webkit-transform: scale(2.2);
+        transform: scale(2.2);
+    }
+}
+
+@keyframes animate {
+    to {
+        -webkit-transform: scale(2.2);
+        transform: scale(2.2);
+    }
+}
+
+@-webkit-keyframes rotate {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
