@@ -83,7 +83,7 @@ namespace Placement_Management_Cell.Controllers
                     return RedirectToAction("Registration", "Student");
                 }
             }
-            catch(DataException)
+            catch (DataException)
             {
                 return RedirectToAction("StudentVerification", "Student");
             }
@@ -122,7 +122,7 @@ namespace Placement_Management_Cell.Controllers
                 var body = "Hi " + getUser.FirstName + ", <br/> You recently requested to reset your password for your account. Click the link below to reset it. " + " <br/><br/><a href='" + link + "'>" + link + "</a> <br/><br/>" + "If you did not request a password reset, please ignore this email or reply to let us know.<br/><br/> Thank you";
                 SendEmail(getUser.EmailAddress, body, subject);
                 TempData["mail-success"] = "Reset password link has been sent to your email id.";
-                return RedirectToAction("LostPassword","Student");
+                return RedirectToAction("LostPassword", "Student");
             }
             else
             {
@@ -145,7 +145,7 @@ namespace Placement_Management_Cell.Controllers
                 _unitOfWork.StudentRepo.changePassword(getStudentByToken);
                 _unitOfWork.Save();
                 TempData["reset-success"] = "Your password has been updated !";
-                return RedirectToAction("Login","Student");
+                return RedirectToAction("Login", "Student");
             }
             else
             {
@@ -179,7 +179,7 @@ namespace Placement_Management_Cell.Controllers
             string erNo = HttpContext.Session.GetString("erNo");
             var student = _unitOfWork.StudentRepo.getStudentByErNo(erNo);
             HttpContext.Session.SetString("BranchId", student.BranchId.ToString());
-            var companyCards = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy,student.BranchId);
+            var companyCards = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy, student.BranchId);
             StudentHeaderViewModel StudentHeader = new StudentHeaderViewModel()
             {
                 EnrollmentNo = erNo,
@@ -202,7 +202,7 @@ namespace Placement_Management_Cell.Controllers
         {
             var enrollmentno = HttpContext.Session.GetString("erNo");
             var student = _unitOfWork.StudentRepo.getStudentByErNo(enrollmentno);
-            var companies = _unitOfWork.CompanyRepo.getCompanyApplicationCards(enrollmentno,searchKeyword,pageNum,sortBy);
+            var companies = _unitOfWork.CompanyRepo.getCompanyApplicationCards(enrollmentno, searchKeyword, pageNum, sortBy);
 
             StudentHeaderViewModel StudentHeader = new StudentHeaderViewModel()
             {
@@ -211,7 +211,7 @@ namespace Placement_Management_Cell.Controllers
                 Name = student.FirstName + " " + student.LastName,
                 StudentNotifications = _unitOfWork.StudentRepo.getStudentNotifications()
             };
-            
+
 
             StudentCompanyViewModel StudentCompany = new StudentCompanyViewModel()
             {
@@ -222,7 +222,7 @@ namespace Placement_Management_Cell.Controllers
         }
 
         [HttpPost]
-        public IActionResult CompanyFilter(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy,bool fromApplications)
+        public IActionResult CompanyFilter(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy, bool fromApplications)
         {
             var comp = new CompanyCardsTotalViewModel();
             var enrollmentno = HttpContext.Session.GetString("erNo");
@@ -232,9 +232,9 @@ namespace Placement_Management_Cell.Controllers
             }
             else
             {
-            comp = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy,int.Parse(HttpContext.Session.GetString("BranchId")));
+                comp = _unitOfWork.CompanyRepo.getCompanyCards(searchKeyword, pageNum, sortBy, int.Parse(HttpContext.Session.GetString("BranchId")));
             }
-            return PartialView("_CompanyCardList",comp);
+            return PartialView("_CompanyCardList", comp);
         }
 
         [AuthAttribute]
@@ -300,19 +300,27 @@ namespace Placement_Management_Cell.Controllers
             return RedirectToAction("CompanyDetail", new { companyId = companyId });
         }
 
-        
+
         public IActionResult GetStudentProfile()
         {
             var erNo = HttpContext.Session.GetString("erNo");
             var student = _unitOfWork.StudentRepo.getStudentByErNo(erNo);
 
-            return PartialView("_StudentProfileEdit", student); 
+            return PartialView("_StudentProfileEdit", student);
         }
 
         [HttpPost]
-        public IActionResult EditStudentProfile(Student student)
+        public bool EditStudentProfile(Student student)
         {
-            return null;
+            student.EnrollmentNumber = HttpContext.Session.GetString("erNo");
+            if (ModelState.IsValid)
+            {
+                TempData["user-profile-edit"] = "Profile Updated Successfully";
+                var isSuccess = _unitOfWork.StudentRepo.UpdateStudentProfile(student);
+                return true;
+            }
+            return false;
+
         }
     }
 }

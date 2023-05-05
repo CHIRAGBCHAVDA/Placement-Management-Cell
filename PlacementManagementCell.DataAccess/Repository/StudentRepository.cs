@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using PlacementManagementCell.Models.ViewModels;
 using static System.Net.WebRequestMethods;
+using Microsoft.AspNetCore.Http;
 
 namespace PlacementManagementCell.DataAccess.Repository
 {
@@ -74,7 +75,7 @@ namespace PlacementManagementCell.DataAccess.Repository
         {
             var client = new SmtpClient("smtp.gmail.com", 587);
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("chiragchavda.tatvasoft@gmail.com", "orltrydyhfxgxdrz");
+            client.Credentials = new NetworkCredential("chiragchavda.tatvasoft@gmail.com", "xyivzeubzckqahvi");
             client.EnableSsl = true;
 
             var message = new MailMessage();
@@ -131,6 +132,37 @@ namespace PlacementManagementCell.DataAccess.Repository
             });
 
             return toAppend.OrderByDescending(comp => comp.Deadline).ToList();
+        }
+
+        public bool UpdateStudentProfile(Student student)
+        {
+            try
+            {
+                var oldStudent = _db.Students.FirstOrDefault(std => std.EnrollmentNumber.Equals(student.EnrollmentNumber));
+
+                oldStudent.Avatar = student.Avatar != null ? student.Avatar : oldStudent.Avatar;
+                oldStudent.FirstName = student.FirstName;
+                oldStudent.MiddleName = student.MiddleName;
+                oldStudent.LastName = student.LastName;
+                oldStudent.BranchId = student.BranchId;
+                oldStudent.DateOfBirth = student.DateOfBirth;
+                oldStudent.TenthPercentage = student.TenthPercentage;
+                oldStudent.TwelthPercentage = student.TwelthPercentage;
+                oldStudent.DiplomaCgpa = student.DiplomaCgpa;
+                oldStudent.BeCgpa = student.BeCgpa;
+                oldStudent.MobileNumber = student.MobileNumber;
+                oldStudent.EmailAddress = student.EmailAddress;
+                oldStudent.Resume = student.Resume;
+
+                _db.Students.Update(oldStudent);
+                _db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

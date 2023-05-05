@@ -22,5 +22,6 @@ namespace PlacementManagementCell.DataAccess.Repository.IRepository
         public Student getStudentByErNo(string erNo);
         public List<Company> getAppliedCompanies(string enrollmentNo);
         public List<StudentNotification> getStudentNotifications();
+        public bool UpdateStudentProfile(Student student);
     }
 }

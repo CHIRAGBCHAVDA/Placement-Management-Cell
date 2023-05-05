@@ -1,6 +1,15 @@
 ﻿@using PlacementManagementCell.Models.ViewModels
 @model StudentHeaderViewModel
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+@if (TempData["user-profile-edit"] != null)
+{
+    string str = TempData["user-profile-edit"].ToString();
+    <partial name="_ToastSuccess" model="@str" />
+}
 
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid d-flex justify-content-between">
@@ -17,12 +26,20 @@
                     <a class="nav-link" asp-action="StudentApplication" asp-controller="Student">Applications</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <i class="bi bi-bell text-decoration-none fst-normal"> &nbsp; Notifications</i>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="text-decoration-none">
+                        <i class="bi bi-bell text-decoration-none fst-normal text-secondary">  Notifications</i>
                     </a>
                 </li>
                 <li class="nav-item d-flex flex-column align-items-center ms-4">
-                    <a class="nav-link"><img src="https://lh3.googleusercontent.com/ogw/AAEL6sjd9z0L0ePBoKjmBRCpUS6L_Kf21CNyTX883Bv3=s32-c-mo" class="rounded-circle" /></a>
+                    <a class="nav-link">
+                        @if(Model.Avatar!=null){
+                            <img src="@Model.Avatar" class="rounded-circle"  style="height:50px;width:50px"/>
+                        }
+                        else
+                        {
+                            <img src="~/assets/default-user-profile-picture-300x300.jpg" class="rounded-circle" style="height:50px;width:50px" />
+                        }
+                    </a>
                     <div class="dropdown">
                         <button class="btn btn-secondary bg-none text-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             @Model.Name
@@ -74,3 +91,5 @@
         </div>
     </div>
 </div>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

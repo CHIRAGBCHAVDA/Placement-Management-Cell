@@ -32,11 +32,12 @@ $(document).ready(function () {
             });
     });
 
-    $(document).on('submit', "#student-profile-edit-form", function () {
+    $(document).on('submit', "#student-profile-edit-form", function (e) {
         var form = document.getElementById("student-profile-edit-form");
         var formData = new FormData(form);
         formData.set('avatar', imgOfStudent);
 
+    
         $.ajax({
             type: "POST",
             url: "/Student/EditStudentProfile",
@@ -44,7 +45,12 @@ $(document).ready(function () {
             processData: false,
             contentType: false,
             success: function (result) {
-                window.location.reload();
+                if (result==true) {
+                    window.location.reload();
+                }
+                else {
+                    toastr.error("Could Not Save Changes");
+                }
             },
             error: function (xhr, status, error) {
                 console.log("IN error function");
