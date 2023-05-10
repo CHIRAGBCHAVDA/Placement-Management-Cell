@@ -29,11 +29,21 @@ namespace Placement_Management_Cell.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("erNo") == null)
+            {
+                return RedirectToAction("Login", "Student");
+            }
             return View();
         }
 
         public IActionResult Login()
         {
+            if (HttpContext.Session.GetString("erNo") != null)
+            {
+                return RedirectToAction("StudentLanding", "Student");
+            }
+
+            HttpContext.Session.Clear();
             return View();
         }
 
@@ -63,25 +73,33 @@ namespace Placement_Management_Cell.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
         [HttpPost]
-        public ActionResult StudentRegistrationPOST(Student student)
+        [ActionName("StudentRegistrationPOST")]
+        public ActionResult StudentRegistration(Student student)
         {
             try
             {
                 //student.Password = BCrypt.Net.BCrypt.HashPassword(student.Password);
-                var returnedByMethod = _unitOfWork.StudentRepo.RegisterStudent(student);
-                if (returnedByMethod == true)
+                if (ModelState.IsValid)
                 {
-                    _unitOfWork.StudentRepo.Save();
-                    TempData["Verification-mail"] = "Verification mail is sent on your email address!!";
-                    return RedirectToAction("StudentVerification", "Student");
+                    var returnedByMethod = _unitOfWork.StudentRepo.RegisterStudent(student);
+                    if (returnedByMethod == true)
+                    {
+                        _unitOfWork.StudentRepo.Save();
+                        TempData["Verification-mail"] = "Verification mail is sent on your email address!!";
+                        return RedirectToAction("StudentVerification", "Student");
+                    }
+                    else
+                    {
+                        TempData["reg-fail"] = "Could not register the outsider student or student already exists...!";
+                        return RedirectToAction("Registration", "Student");
+                    }
                 }
                 else
                 {
-                    TempData["reg-fail"] = "Could not register the outsider student or student already exists...!";
-                    return RedirectToAction("Registration", "Student");
+                    return View("Registration");
                 }
+                
             }
             catch (DataException)
             {
@@ -92,6 +110,7 @@ namespace Placement_Management_Cell.Controllers
         [HttpPost]
         public ActionResult StudentLogin(string EmailAddress, string Password)
         {
+            HttpContext.Session.Clear();
             //string pwd = BCrypt.Net.BCrypt.HashPassword(Password);
             var checkStudent = _unitOfWork.StudentRepo.LoginStudent(EmailAddress, Password);
             if (checkStudent != null)
@@ -99,7 +118,14 @@ namespace Placement_Management_Cell.Controllers
                 TempData["user-login-success"] = "User Logged in Successfully";
                 HttpContext.Session.SetString("role", "student");
                 HttpContext.Session.SetString("erNo", checkStudent.EnrollmentNumber);
-                return RedirectToAction("StudentLanding", "Student");
+                if (EmailAddress.Equals("chiragchavda0210@gmail.com"))
+                {
+                    return RedirectToAction("TPOAllCompanyDashboard", "TPO");
+                }
+                else
+                {
+                    return RedirectToAction("StudentLanding", "Student");
+                }
             }
             TempData["user-login-fail"] = "Error Occurred While Login, Check the credentials...!";
             return RedirectToAction("Login", "Student");
@@ -160,7 +186,7 @@ namespace Placement_Management_Cell.Controllers
         {
             var client = new SmtpClient("smtp.gmail.com", 587);
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("chiragchavda.tatvasoft@gmail.com", "orltrydyhfxgxdrz");
+            client.Credentials = new NetworkCredential("chiragchavda.tatvasoft@gmail.com", "xyivzeubzckqahvi");
             client.EnableSsl = true;
 
             var message = new MailMessage();
@@ -176,6 +202,10 @@ namespace Placement_Management_Cell.Controllers
         [AuthAttribute]
         public IActionResult StudentLanding(string? searchKeyword, [DefaultValue(1)] int pageNum, [DefaultValue(1)] int sortBy)
         {
+            if (HttpContext.Session.GetString("erNo") == null)
+            {
+                return RedirectToAction("Login","Student");
+            }
             string erNo = HttpContext.Session.GetString("erNo");
             var student = _unitOfWork.StudentRepo.getStudentByErNo(erNo);
             HttpContext.Session.SetString("BranchId", student.BranchId.ToString());

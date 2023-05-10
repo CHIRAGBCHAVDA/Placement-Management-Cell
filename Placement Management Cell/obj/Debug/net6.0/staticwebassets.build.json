@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "A5QSIIw6iCgeQmH36oerWIdKztOLTUWT1+LDWjXdavI=",
+  "Hash": "FrhAkjd3hF0SWsXptySZ0sX6X9nnKdNNCfUfjCUixZ0=",
   "Source": "PlacementManagementCell",
   "BasePath": "_content/PlacementManagementCell",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\BOSCHLTD.NS.png"
+    },
+    {
+      "Identity": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\chirag google.jpg",
+      "SourceId": "PlacementManagementCell",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\",
+      "BasePath": "_content/PlacementManagementCell",
+      "RelativePath": "assets/chirag google.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\chirag google.jpg"
     },
     {
       "Identity": "D:\\Placement Management Cell\\Placement Management Cell\\Placement Management Cell\\wwwroot\\assets\\company-1.jpg",

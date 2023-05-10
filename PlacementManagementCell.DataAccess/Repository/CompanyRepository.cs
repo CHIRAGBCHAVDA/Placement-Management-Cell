@@ -170,7 +170,7 @@ namespace PlacementManagementCell.DataAccess.Repository
                 var company = getCompanyById(companyId);
                 var student = _db.Students.FirstOrDefault(student => student.EnrollmentNumber.Equals(enrollmentNo));
 
-                if(student.BeCgpa >= company.MinCgpa && student.ActiveBacklog<=company.MinBacklog && (student.BranchId==company.BranchId || company.BranchId==1))   
+                if(student.BeCgpa >= company.MinCgpa && student.ActiveBacklog<=company.MinBacklog && (student.BranchId==company.BranchId || company.BranchId==1) && company.Deadline>=DateTime.Now)   
                 {
                     var companyApplication = new CompanyApplication()
                     {
@@ -182,6 +182,12 @@ namespace PlacementManagementCell.DataAccess.Repository
                     baseResponse.StatusCode = 200;
                     baseResponse.Success = true;
                     baseResponse.Message = "Your application is submitted!!";
+                }
+                else if(!(company.Deadline>=DateTime.Now))
+                {
+                    baseResponse.StatusCode = 500;
+                    baseResponse.Success = false;
+                    baseResponse.Message = "Oops, Deadline has passed....";
                 }
                 else
                 {
